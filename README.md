@@ -11,6 +11,12 @@ In 2019 we bought a van to convert into a buscamper and called him Herbert de Ca
 - LED Ceiling lights
 - 5V 5A Buck converter
 
+### Accu monitor
+NodeMCU v3
+INA3221 (SDA GPIO4/D2, SCL GPIO5/D1)
+DHT22 (Pin 8)
+
+
 ## Software
 - [Home Assistant](https://www.home-assistant.io/)
   - [Custom WiFi access point addon](https://github.com/joosthb/hassio-addons)
