@@ -17,7 +17,7 @@ The accu monitor module is build around an NodeMCU V3 and is measuring temperatu
 
 **Pinouts**
 - INA3221 (SDA GPIO4/D2, SCL GPIO5/D1)
-- DHT22 (Pin 8)
+- DHT22 (D7)
 
 
 ## Software
