@@ -1,6 +1,11 @@
 # Digital Herbert - Buscamper automation project
 In 2019 we bought a van to convert into a buscamper and called him Herbert de Campert 🚐, you can follow the physical build process on [Instagram](https://www.instagram.com/herbertdecampert/). This project describes the work in progress on the automation of our camper. It will be based on Home Assistant and ESPHome.
 
+## Overview
+![Schematic overview](Digital_Herbert.png "Schematic overview")
+
+
+
 ## Hardware
 - Raspberry Pi 3B
 - NodeMCU v3
@@ -9,7 +14,7 @@ In 2019 we bought a van to convert into a buscamper and called him Herbert de Ca
 - DHT22
 - WS2812 LED strip
 - LED Ceiling lights
-- 5V 5A Buck converter
+- 5V 5A DC-DC Buck converter
 
 ## Modules
 ### Accu monitor
