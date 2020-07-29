@@ -1,0 +1,60 @@
+esphome:
+  name: testesp
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_passwd
+  # use_address: testesp.local
+  
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "testesp"
+    password: !secret device_passwd
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret device_passwd
+
+ota:
+  password: !secret device_passwd
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: D3
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "testespbutton"
+    on_press:
+      then:
+        - light.toggle: led
+
+# configuration entry
+light:
+  platform: monochromatic
+  name: "testesp led"
+  output: output_component
+  id: led
+  effects:
+  - strobe:
+      name: blink
+      colors:
+        - state: true
+          duration: 500ms
+        - state: false
+          duration: 500ms
+
+# output entry
+output:
+  - platform: esp8266_pwm
+    id: output_component
+    pin: D4
+    inverted: true
+    

@@ -1,0 +1,130 @@
+esphome:
+  name: accu_monitor
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_passwd
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "accu_monitor"
+    password: !secret device_passwd
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret device_passwd
+
+ota:
+  password: !secret device_passwd
+
+# Enable i2c with default parameters
+i2c:
+
+# accu config params
+globals:
+  # voltage with full battery
+  - id: lastlevel
+    type: int
+    initial_value: '0'
+
+# Sensor config
+# all sensors are measured every 10 seconds and averaged over one minute
+sensor:
+  - platform: dht
+    model: DHT22
+    pin: D7
+    temperature:
+      name: "Temperatuur"
+    humidity:
+      name: "Luchtvochtigheid"
+    update_interval: 60s
+  - platform: ina3221
+    address: 0x40
+    channel_1:
+      # shunt_resistance: 0.00075 ohm
+      shunt_resistance: 0.0075 ohm
+      current:
+        name: "Stroom"
+        id: current
+        icon: "mdi:current-dc"
+        filters:
+        - multiply: -1.0
+        - sliding_window_moving_average:
+            window_size: 6
+            send_every: 6
+      power:
+        name: "Vermogen"
+        id: my_power
+        filters:
+        - multiply: -1.0
+        - sliding_window_moving_average:
+            window_size: 6
+            send_every: 6
+      bus_voltage:
+        name: "Spanning"
+        id: voltage
+        filters:
+        - sliding_window_moving_average:
+            window_size: 6
+            send_every: 6
+    update_interval: 300s 
+
+  - platform: total_daily_energy
+    name: "Total Daily Energy"
+    power_id: my_power
+
+  - platform: template
+    name: "Battery level"
+    icon: "mdi:car-battery"
+    unit_of_measurement: '%'
+    # if not charging
+    # calculate level (current voltage - min) / (max - min) * 100
+    lambda: |- 
+      if (id(current).state < 0.0) {
+        id(lastlevel) = ( id(voltage).state - 11.0 ) * 50;
+      }
+      return id(lastlevel);
+    # five minutes
+    update_interval: 60s
+
+binary_sensor:
+  - platform: template
+    name: "Opladen?"
+    id: charging
+    lambda: |-
+      if (id(current).state > 0.0) {
+        // Battery is charging.
+        return true;
+      } else {
+        // Battery is uncharching.
+        return false;
+      }
+
+# Enable time component to reset energy at midnight
+time:
+  - platform: homeassistant
+
+switch:
+  - platform: shutdown
+    name: "Accu monitor shutdown"
+#   - platform: gpio
+#     name: "Power converter 12DC-220AC"
+#     id: power_converter
+#     restore_mode: ALWAYS_OFF
+#     pin:
+#       number: D5
+#       # inverted: yes
+#   - platform: gpio
+#     name: "Acculader"
+#     id: battery_charger
+#     restore_mode: ALWAYS_ON
+#     pin:
+#       number: D6
+#       inverted: yes
