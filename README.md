@@ -1,34 +1,29 @@
 # Digital Herbert - Buscamper automation project
-In 2019 we bought a van to convert into a buscamper and called him Herbert de Campert 🚐, you can follow the physical build process on [Instagram](https://www.instagram.com/herbertdecampert/). This project describes the work in progress on the automation of our camper. It will be based on Home Assistant and ESPHome.
+In 2019 we bought a van to convert into a buscamper and called it Herbert de Campert 🚐, you can follow the physical build process on [@herbertdecampert](https://www.instagram.com/herbertdecampert/). This page describes the work in progress on the automation of our camper. It is be based on a Raspberry Pi with Home Assistant and several ESP8266 modules with ESPHome.
+
+![Functional overview](digitalherbert.gif "Schematic overview")
 
 ## Overview
 ![Schematic overview](Digital_Herbert.png "Schematic overview")
 
+The project is build around a Raspberry Pi 3B (core hub), three NodeMCU v3 modules (wireless io) and various sensors and actuators. The NodeMCU modules are equiped with internal voltage regulators so they can be powered directly by the car battery. Power-thirsty hardware modules are powered by efficient 5V 5A DC-DC Buck converters.
 
+The van automation logic is built using [Home Assistant](https://www.home-assistant.io/) and [ESPHome](https://esphome.io/). The *domotica hub* is serving a local WiFi access point (hostapd) to which the other modules connnect. It also connects to available and known wireless access points (home wifi, mobile hotspot etcetera) for uplink.
 
-## Hardware
-- Raspberry Pi 3B
-- NodeMCU v3
-- 100A Shunt
-- INA3221
-- DHT22
-- WS2812 LED strip
-- LED Ceiling lights
-- 5V 5A DC-DC Buck converter
+### 1 - Domotica hub node
+This module is the core of Digital Herbert. The hardware is a Rasberry Pi 3B equiped with an additional USB Wifi Module (TP-Link TL-WN722N v2) and a USB GPS Module (U-Blox AG, u-blox 7).
 
-## Modules
-### Accu monitor
-The accu monitor module is build around an NodeMCU V3 and is measuring temperature in the "battery-room" and the actual voltage and current flowing in or out of the battery. Temperature is measured using an DHT22 module (with pull-up resistor). Energy is measured using an [INA3221 I2C Shunt monitor module](https://nl.aliexpress.com/item/32828796768.html) with an external [100A Shunt](https://nl.aliexpress.com/item/32879352313.html). After receiving the INA3221 module I found out it was build with internal shunts and I had to modify the module to be able to use it for my purpose. I removed the internal shunt and connected the supply side external shunt to the POW/VIN1+ pin and the load side to the VIN1-/P1.1 pin. The NodeMCU is directly powered by the 12V car-battery and the sensors are powered by the regulated 3.3v from the NodeMCU board.
+The recommended deployment of Home Assistant relies on the Home Assistant Operating System (HassOS), a light-weight docker host OS. Because the Raspberry does not have a real time clock (RTC) HassOS requires an network time protocol (NTP) server to sync the system clock to, otherwise it will not boot. There's no permanent internet connection available in the campervan so an USB GPS Module is used as time source. Also the hub needs to serve a local WiFi access point with a wireless uplink connection. These unordinary requirements were not feasable on HassOS so [Raspberry Pi OS](https://www.raspberrypi.org/downloads/raspberry-pi-os/) (previously called Raspbian) is used instead.
 
-**Pinouts**
+### 3 - Battery space node
+The battery space node is build around an NodeMCUv3 and is measuring temperature, humidity and the actual voltage and current flowing in or out of the battery. Temperature is measured using an DHT22 module (with pull-up resistor). Energy is measured using an [INA3221 I2C Shunt monitor module](https://nl.aliexpress.com/item/32828796768.html) with an external [100A Shunt](https://nl.aliexpress.com/item/32879352313.html). The INA3221 module is build with internal shunts and needs to be modified to be able to use it with an external shunt. The internal shunt has to be removed and the supply side of the external shunt has to be connected to the POW/VIN1+ pin. The load side of the shunt has to be connected to the VIN1-/P1.1 pin. The NodeMCU is directly powered by the 12V car-battery and the sensors are powered by the regulated 3.3v from the NodeMCU board.
+
+**Pinout**
 - INA3221 (SDA GPIO4/D2, SCL GPIO5/D1)
 - DHT22 (D7)
 
+### 3 - Top left cupboard node
+This node is also a NodeMCU v3 driving a WS2812B LED-strip (175 LEDs) and has two illuminated push butons.
 
-## Software
-- [Home Assistant](https://www.home-assistant.io/)
-  - [Custom WiFi access point addon](https://github.com/joosthb/hassio-addons)
-- [ESPHome](https://esphome.io/)
-
-## Bill of materials
-- ["Chinese diesel heater"](https://nl.aliexpress.com/item/32836642933.html)
+### 4 - Top right cupboard node
+Same but 102 LEDs and a relay to switch the LED-spots on the ceiling.
