@@ -1,0 +1,19 @@
+sides:
+  name: Sides
+  entities:
+    - light.wand_links
+    - light.wand_rechts
+button_leds:
+  name: Button leds
+  entities:
+    - light.links_button_1_led
+    - light.links_button_2_led
+    - light.rechts_button_1_led
+    - light.rechts_button_2_led
+nodemcu_shutdown:
+  name: Shutdown NodeMCU's
+  entities:
+    - switch.accu_monitor_shutdown
+    - switch.linksboven_shutdown
+    - switch.rechtsboven_shutdown
+
