@@ -16,7 +16,12 @@ This module is the core of Digital Herbert. The hardware is a Rasberry Pi 3B equ
 The recommended deployment of Home Assistant relies on the Home Assistant Operating System (HassOS), a light-weight docker host OS. Because the Raspberry does not have a real time clock (RTC) HassOS requires an network time protocol (NTP) server to sync the system clock to, otherwise it will not boot. There's no permanent internet connection available in the campervan so an USB GPS Module is used as time source. Also the hub needs to serve a local WiFi access point with a wireless uplink connection. These unordinary requirements were not feasable on HassOS so [Raspberry Pi OS](https://www.raspberrypi.org/downloads/raspberry-pi-os/) (previously called Raspbian) is used instead.
 
 ### 2 - Battery space node
-The battery space node is build around an NodeMCUv3 and measures temperature, humidity and the actual voltage and current flowing in or out of the battery. Temperature is measured using an DHT22 module (with pull-up resistor). Energy is measured using an [INA3221 I2C Shunt monitor module](https://nl.aliexpress.com/item/32828796768.html) with an external [100A Shunt](https://nl.aliexpress.com/item/32879352313.html). The INA3221 module is build with internal shunts and needs to be modified to be able to use it with an external shunt. The internal shunt has to be removed and the supply side of the external shunt has to be connected to the POW/VIN1+ pin. The load side of the shunt has to be connected to the VIN1-/P1.1 pin. The NodeMCU is directly powered by the 12V car-battery and the sensors are powered by the regulated 3.3v from the NodeMCU board.
+The battery space node is build around an NodeMCUv3 and measures temperature, humidity and the actual voltage and current flowing from or to the battery. Temperature is measured using an DHT22 module (with pull-up resistor). Energy is measured using an [INA3221 I2C 3-channel Shunt monitor module](https://nl.aliexpress.com/item/32828796768.html) with three external shunt resistors [Shunt](https://nl.aliexpress.com/item/4000064064917.html):
+- 10A - Solar panel.
+- 20A - Consumers (refrigerator, lights, radio etc..).
+- 30A - Car engine generator.
+
+The INA3221 module is build with internal shunts and needs to be modified to be able to use it with an external shunt. The internal shunt has to be removed and the supply side of the external shunt has to be connected to the POW/VIN1+ pin. The load side of the shunt has to be connected to the VIN1-/P1.1 pin. The NodeMCU is directly powered by the 12V car-battery and the sensors are powered by the regulated 3.3v from the NodeMCU board.
 
 **Pinout**
 - INA3221 (SDA GPIO4/D2, SCL GPIO5/D1)
