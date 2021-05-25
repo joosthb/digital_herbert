@@ -1,10 +1,10 @@
 # Digital Herbert - Buscamper automation project
 In 2019 we bought a van to convert into a buscamper and called it Herbert de Campert 🚐, you can follow the physical build process on [@herbertdecampert](https://www.instagram.com/herbertdecampert/). This page describes the work in progress on the automation of our camper. It is be based on a Raspberry Pi with Home Assistant and several ESP8266 modules with ESPHome.
 
-![Functional overview](digitalherbertsmall.gif "Functional overview")
+![Functional overview](docs/digitalherbertsmall.gif "Functional overview")
 
 ## Overview
-![Schematic overview](Digital_Herbert.png "Schematic overview")
+![Schematic overview](docs/Digital_Herbert.png "Schematic overview")
 
 The project is build around a Raspberry Pi 3B (core hub), three NodeMCU v3 modules (wireless io) and various sensors and actuators. The NodeMCU modules are equiped with internal voltage regulators so they can be powered directly by the car battery. Power-thirsty hardware modules are powered by efficient 5V 5A DC-DC Buck converters.
 
