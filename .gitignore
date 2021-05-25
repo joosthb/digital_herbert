@@ -6,6 +6,7 @@
 !.gitignore
 !*.md
 !esphome
+!secrets.example
 
 # Ignore folders.
 .storage
@@ -14,8 +15,5 @@
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
-secrets.yaml
+/secrets.yaml
 known_devices.yaml
-
-# Mac
-.DS_Store
