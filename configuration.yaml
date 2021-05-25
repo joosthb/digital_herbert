@@ -1,0 +1,118 @@
+homeassistant:
+  customize: !include customize.yaml
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+# tts:
+#   - platform: google_translate
+
+counter:
+  scene_counter1:
+    initial: 0
+    step: 1
+
+# Import gps data
+sensor:
+  - platform: gpsd
+  - platform: template
+    sensors:
+      energie_verbruik_totaal:
+        friendly_name: "Energie verbruik totaal"
+        unit_of_measurement: 'Wh'
+        value_template: "{{ states('sensor.dagtotaal_dynamo') | float + states('sensor.dagtotaal_solar') | float + states('sensor.dagtotaal_verbruikers') | float }}"
+      vermogen_totaal:
+        friendly_name: "Huidig vermogen"
+        unit_of_measurement: 'W'
+        value_template: "{{ states('sensor.vermogen_dynamo') | float + states('sensor.vermogen_solar') | float + states('sensor.vermogen_verbruikers') | float }}"
+
+
+# Create daily total usage
+#utility_meter:
+#  daily_energy:
+#    source: sensor.energy_total
+#    cycle: daily
+#    #unit_of_measurement: Wh
+
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+
+recorder:
+  # only record herbert health status
+  include:
+    entities:
+      - switch.acculader
+      - binary_sensor.beweging
+      - sensor.energie_verbruik_totaal
+      - sensor.vermogen_dynamo
+      - sensor.vermogen_solar
+      - sensor.vermogen_verbruikers
+      - sensor.accuspanning
+      - sensor.dagtotaal_dynamo
+      - sensor.dagtotaal_solar
+      - sensor.dagtotaal_verbruikers
+      - sensor.gps
+      - sensor.luchtvochtigheid
+      - sensor.temperatuur
+      - zone.home
+     # And keep them long
+  purge_keep_days: 60
+
+history:
+  # only show herbert health status
+  include:
+    entities:
+      - switch.acculader
+      - binary_sensor.beweging
+      - sensor.energie_verbruik_totaal
+      - sensor.vermogen_dynamo
+      - sensor.vermogen_solar
+      - sensor.vermogen_verbruikers
+      - sensor.accuspanning
+      - sensor.dagtotaal_dynamo
+      - sensor.dagtotaal_solar
+      - sensor.dagtotaal_verbruikers
+      - sensor.gps
+      - sensor.luchtvochtigheid
+      - sensor.temperatuur
+      - zone.home
+shell_command:
+  halt: sudo /sbin/halt
+
+  # entry for the Telegram Bot
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - 451219846
+
+# entry for the notifier
+notify:
+  - name: hb_tel
+    platform: telegram
+    chat_id: 451219846
+
+#homekit:
+#  filter:
+#    include_domains:
+#      - switch
+#      - light
+
+# HomeKit start delay for stability funcks stuff up
+#homekit:
+#  auto_start: false
+
+#automation:
+#  - alias: 'Start HomeKit'
+#    trigger:
+#      - platform: homeassistant
+#        event: start
+#    action:
+#      - delay: 00:05  # Waits 5 minutes
+#      - service: homekit.start
+#
