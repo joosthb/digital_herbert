@@ -90,16 +90,16 @@
     platform: time_pattern
   condition: []
   action:
-  - data_template:
-      latitude: '{{ states.sensor.gps.attributes.latitude }}'
-      longitude: '{{ states.sensor.gps.attributes.longitude }}'
-    service: homeassistant.set_location
-  - data_template:
+  - service: device_tracker.see
+    data:
+      dev_id: herbertje
       gps:
       - '{{ states.sensor.gps.attributes.latitude }}'
       - '{{ states.sensor.gps.attributes.longitude }}'
-      dev_id: herbertje
-    service: device_tracker.see
+  - service: homeassistant.set_location
+    data_template:
+      latitude: '{{ states.sensor.gps.attributes.latitude }}'
+      longitude: '{{ states.sensor.gps.attributes.longitude }}'
   mode: single
 - id: '1594728365026'
   alias: 4 - Lees scene
@@ -247,4 +247,18 @@
       seconds: 5
       milliseconds: 0
   - service: shell_command.halt
+  mode: single
+- id: '1623936037176'
+  alias: Al mot ik kruupe
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: device_tracker.herbertje
+    zone: zone.stevens
+    event: enter
+  condition: []
+  action:
+  - service: notify.hb_tel
+    data:
+      message: Al mot ik kruupe
   mode: single
