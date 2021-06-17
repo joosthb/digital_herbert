@@ -82,18 +82,6 @@
   - entity_id: counter.scene_counter1
     service: counter.reset
   mode: single
-- id: '1594113594319'
-  alias: test long press
-  description: ''
-  trigger:
-  - entity_id: binary_sensor.links_button_2
-    for:
-      seconds: 3
-    platform: state
-    to: 'on'
-  condition: []
-  action:
-  - scene: scene.party
 - id: '1594127240826'
   alias: Update location
   description: Based on GPS module
@@ -204,3 +192,59 @@
         entity_id:
         - light.wand_links
         - light.wand_rechts
+- id: '1623933077080'
+  alias: Long press shutdown
+  description: ''
+  trigger:
+  - type: turned_on
+    platform: device
+    device_id: b4f9320f585c4197bd086f54c35e4a76
+    entity_id: binary_sensor.links_button_1
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
+  - type: turned_on
+    platform: device
+    device_id: b5e848509d9248ea81e7453bdccd391a
+    entity_id: binary_sensor.rechts_button_1
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
+  condition: []
+  action:
+  - scene: scene.blink
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
+  - service: light.turn_on
+    data:
+      brightness: 200
+      effect: none
+      transition: 5
+    target:
+      entity_id:
+      - light.links_button_1_led
+      - light.links_button_2_led
+      - light.rechts_button_1_led
+      - light.rechts_button_2_led
+  - service: switch.turn_on
+    target:
+      entity_id:
+      - switch.accu_monitor_shutdown
+      - switch.linksboven_shutdown
+      - switch.rechtsboven_shutdown
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
+  - service: shell_command.halt
+  mode: single
