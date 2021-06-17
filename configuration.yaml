@@ -22,8 +22,8 @@ sensor:
         friendly_name: "Energie verbruik totaal"
         unit_of_measurement: 'Wh'
         value_template: "{{ states('sensor.dagtotaal_dynamo') | float + states('sensor.dagtotaal_solar') | float + states('sensor.dagtotaal_verbruikers') | float }}"
-      vermogen_totaal:
-        friendly_name: "Huidig vermogen"
+      verbruik:
+        friendly_name: "Huidig verbruik"
         unit_of_measurement: 'W'
         value_template: "{{ states('sensor.vermogen_dynamo') | float + states('sensor.vermogen_solar') | float + states('sensor.vermogen_verbruikers') | float }}"
 

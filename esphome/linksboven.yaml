@@ -63,26 +63,28 @@ light:
     id: led1
     restore_mode: ALWAYS_ON
     effects:
-      strobe:
-        name: blink
-        colors:
-          - state: true
-            duration: 500ms
-          - state: false
-            duration: 500ms
+      - pulse:
+      - strobe:
+          name: blink
+          colors:
+            - state: true
+              duration: 500ms
+            - state: false
+              duration: 500ms
   - platform: monochromatic
     name: "Links Button 2 LED"
     output: output_component2
     id: led2
     restore_mode: ALWAYS_ON
     effects:
-      strobe:
-        name: blink
-        colors:
-          - state: true
-            duration: 500ms
-          - state: false
-            duration: 500ms
+      - pulse:
+      - strobe:
+          name: blink
+          colors:
+            - state: true
+              duration: 500ms
+            - state: false
+              duration: 500ms
 
   - platform: neopixelbus
     type: GRB
