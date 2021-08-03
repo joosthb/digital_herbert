@@ -32,3 +32,7 @@ This node is also a NodeMCU v3 controlling a WS2812B LED-strip (175 LEDs) and ha
 
 ### 4 - Top right cupboard node
 Same but 102 LEDs and a relay to switch the LED-spots on the ceiling.
+
+## Home Assistant configuration
+### Bluetooth
+Added car-radio as [bluetooth audio device](https://github.com/evzone/hassio-bluepiaudio).
