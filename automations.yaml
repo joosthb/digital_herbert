@@ -118,7 +118,7 @@
   description: ''
   trigger:
   - below: '11.0'
-    entity_id: sensor.spanning
+    entity_id: sensor.accuspanning
     platform: numeric_state
   condition: []
   action:
@@ -128,12 +128,13 @@
       message: Low battery🔋 shutting down soon.
       title: 🚐 Herbert
     service: notify.mobile_app_hb
+  mode: single
 - id: '1596442014439'
   alias: Battery low - shutdown
   description: Will shutdown NodeMCU's and raspberry on low battery
   trigger:
   - below: '10.8'
-    entity_id: sensor.spanning
+    entity_id: sensor.accuspanning
     platform: numeric_state
   condition: []
   action:
@@ -148,6 +149,7 @@
     service: switch.turn_on
   - data: {}
     service: shell_command.halt
+  mode: single
 - id: '1596719819457'
   alias: test
   description: ''
@@ -261,4 +263,30 @@
   - service: notify.hb_tel
     data:
       message: Al mot ik kruupe
+  mode: single
+- id: '1628608481704'
+  alias: stop laden bij 14
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.accuspanning
+    above: '14'
+  condition: []
+  action:
+  - service: switch.turn_off
+    target:
+      entity_id: switch.acculader
+  mode: single
+- id: '1628608647345'
+  alias: start laden bij 12
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.accuspanning
+    below: '12'
+  condition: []
+  action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.acculader
   mode: single

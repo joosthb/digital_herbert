@@ -1,5 +1,13 @@
 homeassistant:
   customize: !include customize.yaml
+  auth_providers:
+    - type: homeassistant
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.99.0/24
+      trusted_users:
+        192.168.99.0/24: 500fc095db5a4ab68183b34f3b553807
+
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
@@ -40,6 +48,13 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+
+media_player:
+  - platform: mpd
+    host: 127.0.0.1
+  #- platform: vlc
+  #  name: "CAR-KIT"
+  #  arguments: "--alsa-audio-device=bluealsa:DEV=74:C0:18:1B:D0:01"
 
 
 recorder:
