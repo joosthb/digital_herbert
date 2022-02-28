@@ -36,3 +36,12 @@ Same but 102 LEDs and a relay to switch the LED-spots on the ceiling.
 ## Home Assistant configuration
 ### Bluetooth
 Added car-radio as [bluetooth audio device](https://github.com/evzone/hassio-bluepiaudio).
+
+**Known issues/workarounds**
+To compile python3.9 with the dev package;
+'''
+./configure --enable-optimizations --enable-shared
+make -j 2
+sudo make altinstall
+'''
+
