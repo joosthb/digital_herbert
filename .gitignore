@@ -7,6 +7,7 @@
 !*.md
 !esphome
 !secrets.example
+!docs
 
 # Ignore folders.
 .storage
