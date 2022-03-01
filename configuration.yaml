@@ -6,7 +6,7 @@ homeassistant:
       trusted_networks:
         - 192.168.99.0/24
       trusted_users:
-        192.168.99.0/24: 500fc095db5a4ab68183b34f3b553807
+        192.168.99.0/24: 0329e83b43944107971af6871e31b252
 
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
