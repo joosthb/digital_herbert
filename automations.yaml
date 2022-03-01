@@ -182,18 +182,18 @@
     entity_id: light.leeslamp_rechts
     service: light.turn_off
   mode: single
-- id: '1613431377413'
-  alias: motion light on
-  description: ''
-  use_blueprint:
-    path: homeassistant/motion_light.yaml
-    input:
-      no_motion_wait: '0'
-      motion_entity: binary_sensor.beweging
-      light_target:
-        entity_id:
-        - light.wand_links
-        - light.wand_rechts
+# - id: '1613431377413'
+#   alias: motion light on
+#   description: ''
+#   use_blueprint:
+#     path: homeassistant/motion_light.yaml
+#     input:
+#       no_motion_wait: '0'
+#       motion_entity: binary_sensor.beweging
+#       light_target:
+#         entity_id:
+#         - light.wand_links
+#         - light.wand_rechts
 - id: '1623933077080'
   alias: Long press shutdown
   description: ''
