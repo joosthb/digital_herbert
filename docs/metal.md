@@ -44,3 +44,4 @@ fix secrets.yaml
 
 [systemd config](https://community.home-assistant.io/t/autostart-using-systemd/199497)
 
+secrets in password vault.
