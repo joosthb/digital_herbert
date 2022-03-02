@@ -87,6 +87,7 @@ light:
               duration: 500ms
 
   - platform: neopixelbus
+    variant: WS2811
     type: GRB
     id: ledstrip
     pin: GPIO3
@@ -115,7 +116,7 @@ light:
     segments:
       - id: ledstrip
         from: 145
-        to: 175
+        to: 174
             
 # output entry
 output:
