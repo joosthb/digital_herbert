@@ -8,7 +8,7 @@
       data:
         subtitle: System state
       message: Boot completed ✅
-      title: 🚐 Herbert
+      #title: 🚐 Herbert
     service: notify.hb_tel
   mode: single
 - id: 6ed8f74c2eff495e97aada68d511183f
@@ -19,8 +19,8 @@
   action:
   - service: notify.hb_tel
     data:
-      title: 🚐 Herbert
-      message: Shutdown initiated
+      #title: 🚐 Herbert
+      message: Shutting down.
       data:
         subtitle: System state
   mode: single
@@ -126,7 +126,7 @@
       data:
         subtitle: Energy state
       message: Low battery🔋 shutting down soon.
-      title: 🚐 Herbert
+      #title: 🚐 Herbert
     service: notify.mobile_app_hb
   mode: single
 - id: '1596442014439'
@@ -142,7 +142,7 @@
       data:
         subtitle: Energy state
       message: Low battery🔋 shutting down now!
-      title: 🚐 Herbert
+      #title: 🚐 Herbert
     service: notify.mobile_app_hb
   - data: {}
     entity_id: switch.rechtsboven_shutdown, switch.linksboven_shutdown, switch.accu_monitor_shutdown
@@ -163,7 +163,7 @@
         subtitle: Testdata
       message: '{{ state_attr(''sensor.gps'', ''latitude'') }}, {{ state_attr(''sensor.gps'',
         ''longitude'') }}'
-      title: 🚐 Herbert
+      #title: 🚐 Herbert
     service: notify.mobile_app_hb
   mode: single
 - id: '1598814983413'
