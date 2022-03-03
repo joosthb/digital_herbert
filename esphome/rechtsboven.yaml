@@ -87,6 +87,7 @@ light:
 
   - platform: neopixelbus
     type: GRB
+    variant: WS2811
     id: ledstrip
     pin: GPIO3
     num_leds: 102
@@ -107,7 +108,7 @@ light:
     segments:
       - id: ledstrip
         from: 72
-        to: 102
+        to: 101
             
 # output entry
 output:

@@ -1,5 +1,5 @@
 esphome:
-  name: accu_monitor
+  name: accumonitor
   platform: ESP8266
   board: nodemcuv2
 
@@ -9,7 +9,7 @@ wifi:
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "accu_monitor"
+    ssid: "accumonitor"
     password: !secret device_passwd
 
 captive_portal:
