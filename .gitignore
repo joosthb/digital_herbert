@@ -8,6 +8,7 @@
 !esphome
 !secrets.example
 !docs
+!raspi
 
 # Ignore folders.
 .storage
