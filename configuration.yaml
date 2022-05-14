@@ -96,6 +96,7 @@ history:
       - sensor.luchtvochtigheid
       - sensor.temperatuur
       - zone.home
+
 shell_command:
   halt: sudo /sbin/halt
 

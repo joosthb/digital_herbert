@@ -220,7 +220,7 @@
       milliseconds: 0
   condition: []
   action:
-  - scene: scene.blink
+  - scene: scene.pulse
   - delay:
       hours: 0
       minutes: 0
