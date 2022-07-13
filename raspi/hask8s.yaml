@@ -1,0 +1,131 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: automation
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: homeassistant
+  namespace: automation
+  labels:
+    app: homeassistant
+    name: hasscore
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: homeassistant
+      task: hasscore
+  template:
+    metadata:
+      labels:
+        app: homeassistant
+        task: hasscore
+    spec:
+      containers:
+        - name: hasscore
+          image: homeassistant/home-assistant:2022.3
+          ports:
+            - containerPort: 8123
+          volumeMounts:
+            - mountPath: "/config"
+              name: hass-conf-storage
+      volumes:
+        - name: hass-conf-storage
+          hostPath:
+            path: "/root/digital_herbert"
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: esphome
+  namespace: automation
+  labels:
+    app: esphome
+    name: esphome
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: esphome
+      task: esphome
+  template:
+    metadata:
+      labels:
+        app: esphome
+        task: esphome
+    spec:
+      containers:
+        - name: esphome
+          image: esphome/esphome:2022.2.6
+          ports:
+            - containerPort: 6052
+          volumeMounts:
+            - mountPath: "/config"
+              name: esphome-conf-storage
+      volumes:
+        - name: esphome-conf-storage
+          hostPath:
+            path: "/root/digital_herbert/esphome"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: homeassistant
+  namespace: automation
+
+spec:
+  ports:
+    - name: http
+      port: 8123
+  selector:
+    app: homeassistant
+    task: hasscore
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: esphome
+  namespace: automation
+
+spec:
+  ports:
+    - name: http
+      port: 6052
+  selector:
+    app: esphome
+    task: esphome
+---
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: homeassistant
+  namespace: automation
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+
+spec:
+  rules:
+    - host: "hass.herbert"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: homeassistant
+                port:
+                  number: 8123
+    - host: "esphome.herbert"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: esphome
+                port:
+                  number: 6052

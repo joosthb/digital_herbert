@@ -1,0 +1,50 @@
+esphome:
+  name: heater
+  platform: ESP32
+  board: esp-wrover-kit
+  includes:
+    - heater.h
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_passwd
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "heater"
+    password: !secret device_passwd
+
+captive_portal:
+
+# Enable logging
+logger:
+  level: DEBUG
+
+api:
+  password: !secret device_passwd
+
+ota:
+  password: !secret device_passwd
+
+uart:
+  id: uart_bus
+  tx_pin: GPIO17
+  rx_pin: GPIO16
+  # might only work on esp32 due to lack of hardware uart on esp8266.
+  # Higher baudrates might result in unstable timing.
+  baud_rate: 25000
+
+custom_component:
+  - lambda: |-
+      auto my_heater = new HeaterComponent(id(uart_bus));
+      return {my_heater};
+
+binary_sensor:
+  - platform: gpio
+    pin: GPIO13
+    name: "Beweging"
+    device_class: motion
+
+switch:
+  - platform: shutdown
+    name: "Heater shutdown"

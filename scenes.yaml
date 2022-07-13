@@ -1,0 +1,505 @@
+- id: '1593698904232'
+  name: Default
+  entities:
+    light.keuken:
+      friendly_name: Keuken
+      state: 'off'
+      supported_features: 57
+    light.links_button_1_led:
+      brightness: 255
+      effect: None
+      effect_list:
+      - None
+      - blink
+      friendly_name: Links - Button 1 LED
+      state: 'on'
+      supported_features: 45
+    light.links_button_2_led:
+      brightness: 255
+      effect: None
+      effect_list:
+      - None
+      - blink
+      friendly_name: Links Button 2 LED
+      state: 'on'
+      supported_features: 45
+    light.rechts_button_1_led:
+      brightness: 255
+      effect: None
+      effect_list:
+      - None
+      - blink
+      friendly_name: Rechts - Button 1 LED
+      state: 'on'
+      supported_features: 45
+    light.rechts_button_2_led:
+      brightness: 255
+      effect: None
+      effect_list:
+      - None
+      - blink
+      friendly_name: Rechts - Button 2 LED
+      state: 'on'
+      supported_features: 45
+    light.spots:
+      friendly_name: Spots
+      icon: mdi:spotlight
+      state: 'off'
+      supported_features: 8
+    light.wand_links:
+      effect_list:
+      - None
+      - Rainbow
+      - Fast Random
+      - Scan
+      friendly_name: Wand links
+      state: 'off'
+      supported_features: 61
+    light.wand_rechts:
+      effect_list:
+      - None
+      - Rainbow
+      - Fast Random
+      - Scan
+      friendly_name: Wand rechts
+      state: 'off'
+      supported_features: 61
+- id: '1593699214451'
+  name: Nacht
+  entities:
+    light.keuken:
+      friendly_name: Keuken
+      state: 'off'
+      supported_features: 57
+    light.links_button_1_led:
+      brightness: 65
+      effect: None
+      effect_list:
+      - None
+      - blink
+      friendly_name: Links - Button 1 LED
+      state: 'on'
+      supported_features: 45
+    light.links_button_2_led:
+      brightness: 65
+      effect: None
+      effect_list:
+      - None
+      - blink
+      friendly_name: Links Button 2 LED
+      state: 'on'
+      supported_features: 45
+    light.rechts_button_1_led:
+      brightness: 65
+      effect: None
+      effect_list:
+      - None
+      - blink
+      friendly_name: Rechts - Button 1 LED
+      state: 'on'
+      supported_features: 45
+    light.rechts_button_2_led:
+      brightness: 65
+      effect: None
+      effect_list:
+      - None
+      - blink
+      friendly_name: Rechts - Button 2 LED
+      state: 'on'
+      supported_features: 45
+    light.spots:
+      friendly_name: Spots
+      icon: mdi:spotlight
+      state: 'off'
+      supported_features: 8
+    light.wand_links:
+      effect_list:
+      - None
+      - Rainbow
+      - Fast Random
+      - Scan
+      friendly_name: Wand links
+      state: 'off'
+      supported_features: 61
+    light.wand_rechts:
+      effect_list:
+      - None
+      - Rainbow
+      - Fast Random
+      - Scan
+      friendly_name: Wand rechts
+      state: 'off'
+      supported_features: 61
+- id: '1594073664879'
+  name: Pulse
+  entities:
+    light.links_button_1_led:
+      effect_list:
+      - None
+      - Pulse
+      - blink
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 255
+      effect: Pulse
+      friendly_name: Links - Button 1 LED
+      supported_features: 45
+      state: 'on'
+    light.links_button_2_led:
+      effect_list:
+      - None
+      - Pulse
+      - blink
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 255
+      effect: Pulse
+      friendly_name: Links Button 2 LED
+      supported_features: 45
+      state: 'on'
+    light.wand_links:
+      effect_list:
+      - None
+      - Rainbow
+      - Fast Random
+      - Scan
+      supported_color_modes:
+      - hs
+      friendly_name: Wand links
+      supported_features: 61
+      state: 'off'
+    light.keuken:
+      supported_color_modes:
+      - hs
+      friendly_name: Keuken
+      supported_features: 57
+      state: 'off'
+    light.leeslamp_links:
+      supported_color_modes:
+      - hs
+      friendly_name: Leeslamp links
+      supported_features: 57
+      state: 'off'
+    switch.linksboven_shutdown:
+      friendly_name: Linksboven shutdown
+      icon: mdi:power
+      state: 'off'
+    light.rechts_button_1_led:
+      effect_list:
+      - None
+      - Pulse
+      - blink
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 255
+      effect: Pulse
+      friendly_name: Rechts - Button 1 LED
+      supported_features: 45
+      state: 'on'
+    light.rechts_button_2_led:
+      effect_list:
+      - None
+      - Pulse
+      - blink
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 255
+      effect: Pulse
+      friendly_name: Rechts - Button 2 LED
+      supported_features: 45
+      state: 'on'
+    light.spots:
+      supported_color_modes:
+      - onoff
+      friendly_name: Spots
+      icon: mdi:spotlight
+      supported_features: 8
+      state: 'off'
+    light.wand_rechts:
+      effect_list:
+      - None
+      - Rainbow
+      - Fast Random
+      - Scan
+      supported_color_modes:
+      - hs
+      friendly_name: Wand rechts
+      supported_features: 61
+      state: 'off'
+    light.leeslamp_rechts:
+      supported_color_modes:
+      - hs
+      friendly_name: Leeslamp rechts
+      supported_features: 57
+      state: 'off'
+    switch.rechtsboven_shutdown:
+      friendly_name: Rechtsboven shutdown
+      icon: mdi:power
+      state: 'off'
+- id: '1594074104277'
+  name: Avond
+  entities:
+    light.spots:
+      friendly_name: Spots
+      icon: mdi:spotlight
+      state: 'off'
+      supported_features: 8
+    light.wand_links:
+      brightness: 170
+      effect: None
+      effect_list:
+      - None
+      - Rainbow
+      - Fast Random
+      - Scan
+      friendly_name: Wand links
+      hs_color:
+      - 44.727
+      - 43.137
+      rgb_color:
+      - 255
+      - 226
+      - 145
+      state: 'on'
+      supported_features: 61
+      xy_color:
+      - 0.421
+      - 0.409
+    light.wand_rechts:
+      brightness: 146
+      effect: None
+      effect_list:
+      - None
+      - Rainbow
+      - Fast Random
+      - Scan
+      friendly_name: Wand rechts
+      hs_color:
+      - 44.727
+      - 43.137
+      rgb_color:
+      - 255
+      - 226
+      - 145
+      state: 'on'
+      supported_features: 61
+      xy_color:
+      - 0.421
+      - 0.409
+- id: '1594074183198'
+  name: Wit
+  entities:
+    light.keuken:
+      friendly_name: Keuken
+      state: 'off'
+      supported_features: 57
+    light.links_button_1_led:
+      brightness: 255
+      effect: None
+      effect_list:
+      - None
+      - blink
+      friendly_name: Links - Button 1 LED
+      state: 'on'
+      supported_features: 45
+    light.links_button_2_led:
+      brightness: 255
+      effect: None
+      effect_list:
+      - None
+      - blink
+      friendly_name: Links Button 2 LED
+      state: 'on'
+      supported_features: 45
+    light.rechts_button_1_led:
+      brightness: 255
+      effect: None
+      effect_list:
+      - None
+      - blink
+      friendly_name: Rechts - Button 1 LED
+      state: 'on'
+      supported_features: 45
+    light.rechts_button_2_led:
+      brightness: 255
+      effect: None
+      effect_list:
+      - None
+      - blink
+      friendly_name: Rechts - Button 2 LED
+      state: 'on'
+      supported_features: 45
+    light.spots:
+      friendly_name: Spots
+      icon: mdi:spotlight
+      state: 'on'
+      supported_features: 8
+    light.wand_links:
+      brightness: 255
+      effect: None
+      effect_list:
+      - None
+      - Rainbow
+      - Fast Random
+      - Scan
+      friendly_name: Wand links
+      hs_color:
+      - 0
+      - 0
+      rgb_color:
+      - 255
+      - 255
+      - 255
+      state: 'on'
+      supported_features: 61
+      xy_color:
+      - 0.323
+      - 0.329
+    light.wand_rechts:
+      brightness: 255
+      effect: None
+      effect_list:
+      - None
+      - Rainbow
+      - Fast Random
+      - Scan
+      friendly_name: Wand rechts
+      hs_color:
+      - 0
+      - 0
+      rgb_color:
+      - 255
+      - 255
+      - 255
+      state: 'on'
+      supported_features: 61
+      xy_color:
+      - 0.323
+      - 0.329
+- id: '1594074277963'
+  name: Laat
+  entities:
+    light.keuken:
+      friendly_name: Keuken
+      state: 'off'
+      supported_features: 57
+    light.links_button_1_led:
+      brightness: 255
+      effect: None
+      effect_list:
+      - None
+      - blink
+      friendly_name: Links - Button 1 LED
+      state: 'on'
+      supported_features: 45
+    light.links_button_2_led:
+      brightness: 255
+      effect: None
+      effect_list:
+      - None
+      - blink
+      friendly_name: Links Button 2 LED
+      state: 'on'
+      supported_features: 45
+    light.rechts_button_1_led:
+      brightness: 255
+      effect: None
+      effect_list:
+      - None
+      - blink
+      friendly_name: Rechts - Button 1 LED
+      state: 'on'
+      supported_features: 45
+    light.rechts_button_2_led:
+      brightness: 255
+      effect: None
+      effect_list:
+      - None
+      - blink
+      friendly_name: Rechts - Button 2 LED
+      state: 'on'
+      supported_features: 45
+    light.spots:
+      friendly_name: Spots
+      icon: mdi:spotlight
+      state: 'off'
+      supported_features: 8
+    light.wand_links:
+      brightness: 77
+      effect: None
+      effect_list:
+      - None
+      - Rainbow
+      - Fast Random
+      - Scan
+      friendly_name: Wand links
+      hs_color:
+      - 29.674
+      - 72.157
+      rgb_color:
+      - 255
+      - 162
+      - 70
+      state: 'on'
+      supported_features: 61
+      xy_color:
+      - 0.543
+      - 0.393
+    light.wand_rechts:
+      brightness: 117
+      effect: None
+      effect_list:
+      - None
+      - Rainbow
+      - Fast Random
+      - Scan
+      friendly_name: Wand rechts
+      hs_color:
+      - 29.836
+      - 71.765
+      rgb_color:
+      - 255
+      - 162
+      - 71
+      state: 'on'
+      supported_features: 61
+      xy_color:
+      - 0.542
+      - 0.392
+- id: '1594728287072'
+  name: Lezen
+  entities:
+    light.leeslamp_links:
+      brightness: 130
+      friendly_name: Leeslamp links
+      hs_color:
+      - 44.941
+      - 100
+      rgb_color:
+      - 255
+      - 190
+      - 0
+      state: 'on'
+      supported_features: 57
+      xy_color:
+      - 0.528
+      - 0.446
+    light.leeslamp_rechts:
+      brightness: 144
+      friendly_name: Leeslamp rechts
+      hs_color:
+      - 44.941
+      - 100
+      rgb_color:
+      - 255
+      - 190
+      - 0
+      state: 'on'
+      supported_features: 57
+      xy_color:
+      - 0.528
+      - 0.446

@@ -1,0 +1,127 @@
+esphome:
+  name: accumonitor
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_passwd
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "accumonitor"
+    password: !secret device_passwd
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret device_passwd
+
+ota:
+  password: !secret device_passwd
+
+# Enable i2c with default parameters GPIO5/D1 SCL - GPIO4/D2 SDA
+i2c:
+
+# Sensor config
+sensor:
+  - platform: dht
+    model: DHT22
+    pin: D7
+    update_interval: 60s
+    temperature:
+      name: "Temperatuur"
+      filters:
+        - exponential_moving_average:
+            alpha: 0.5
+            send_every: 5
+    humidity:
+      name: "Luchtvochtigheid"
+      filters:
+        - exponential_moving_average:
+            alpha: 0.5
+            send_every: 5
+
+  - platform: ina3221
+    address: 0x40
+    update_interval: 1s
+    channel_1:
+      shunt_resistance: 0.00375 ohm
+      power:
+        name: "Vermogen verbruikers"
+        id: power_consumers
+        filters:
+          - exponential_moving_average:
+              alpha: 0.5
+              send_every: 60
+      bus_voltage:
+        name: "Accuspanning"
+        id: battery_voltage
+        filters:
+          - exponential_moving_average:
+              alpha: 0.5
+              send_every: 60
+    channel_2:
+      shunt_resistance: 0.0025 ohm
+      power:
+        name: "Vermogen dynamo"
+        id: power_generator
+        filters:
+          - exponential_moving_average:
+              alpha: 0.5
+              send_every: 60
+    channel_3:
+      shunt_resistance: 0.0075 ohm
+      power:
+        name: "Vermogen solar"
+        id: power_solar
+        icon: mdi:solar-power
+        filters:
+          - exponential_moving_average:
+              alpha: 0.5
+              send_every: 60
+
+  - platform: total_daily_energy
+    name: "Dagtotaal solar"
+    power_id: power_solar
+    icon: mdi:solar-power
+    id: total_daily_solar_energy
+
+  - platform: total_daily_energy
+    name: "Dagtotaal verbruikers"
+    power_id: power_consumers
+    id: total_daily_consumer_energy
+
+  - platform: total_daily_energy
+    name: "Dagtotaal dynamo"
+    power_id: power_generator
+    id: total_daily_generator_energy
+
+
+# Enable time component to reset energy at midnight
+time:
+  - platform: homeassistant
+
+switch:
+  - platform: shutdown
+    name: "Accu monitor shutdown"
+
+  - platform: gpio
+    name: "Acculader"
+    id: battery_charger
+    restore_mode: ALWAYS_ON
+    pin:
+      number: D6
+      #inverted: yes
+      
+  - platform: gpio
+    name: "Power converter"
+    id: power_converter
+    restore_mode: ALWAYS_OFF
+    pin:
+      number: D5
+      inverted: yes

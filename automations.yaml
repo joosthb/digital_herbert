@@ -1,0 +1,292 @@
+- id: b9047cf84ccc44a3b194cfa115eaca8d
+  alias: Boot completed
+  trigger:
+  - event: start
+    platform: homeassistant
+  action:
+  - data:
+      data:
+        subtitle: System state
+      message: Boot completed ✅
+      #title: 🚐 Herbert
+    service: notify.hb_tel
+  mode: single
+- id: 6ed8f74c2eff495e97aada68d511183f
+  alias: Shutdown initiated completed
+  trigger:
+  - platform: homeassistant
+    event: shutdown
+  action:
+  - service: notify.hb_tel
+    data:
+      #title: 🚐 Herbert
+      message: Shutting down.
+      data:
+        subtitle: System state
+  mode: single
+- alias: Update scene counter
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.links_button_1, binary_sensor.rechts_button_1
+    to: 'on'
+  action:
+    service: counter.increment
+    entity_id: counter.scene_counter1
+  id: 64bc608240364fe98450e8c653a817ca
+- id: 664e36d2843349d38370aff68b9abd06
+  alias: 0 - Default scene
+  trigger:
+  - entity_id: counter.scene_counter1
+    platform: state
+    to: '0'
+  - event: start
+    platform: homeassistant
+  action:
+  - entity_id: scene.default
+    service: scene.turn_on
+- id: 60ed1e21396e46d7ae6e949c624aa310
+  alias: 1 - Avond scene
+  trigger:
+  - entity_id: counter.scene_counter1
+    platform: state
+    to: '1'
+  action:
+  - entity_id: scene.avond
+    service: scene.turn_on
+- id: 8719caeb3bd444deacd57c0e37557ed8
+  alias: 2 - Wit scene
+  trigger:
+  - entity_id: counter.scene_counter1
+    platform: state
+    to: '2'
+  action:
+  - entity_id: scene.wit
+    service: scene.turn_on
+- id: 81bbc14b6dbf4de98e1bfd3253635917
+  alias: 3 - Laat scene
+  trigger:
+  - entity_id: counter.scene_counter1
+    platform: state
+    to: '3'
+  action:
+  - entity_id: scene.party
+    service: scene.turn_on
+  mode: single
+- id: 7d575812e49d4ddcbf6a92667bd04e5a
+  alias: 4 - Reset counter
+  trigger:
+  - entity_id: counter.scene_counter1
+    platform: state
+    to: '4'
+  action:
+  - entity_id: counter.scene_counter1
+    service: counter.reset
+  mode: single
+- id: '1594127240826'
+  alias: Update location
+  description: Based on GPS module
+  trigger:
+  - minutes: '5'
+    platform: time_pattern
+  condition: []
+  action:
+  - service: device_tracker.see
+    data:
+      dev_id: herbertje
+      gps:
+      - '{{ states.sensor.gps.attributes.latitude }}'
+      - '{{ states.sensor.gps.attributes.longitude }}'
+  - service: homeassistant.set_location
+    data_template:
+      latitude: '{{ states.sensor.gps.attributes.latitude }}'
+      longitude: '{{ states.sensor.gps.attributes.longitude }}'
+  mode: single
+- id: '1594728365026'
+  alias: 4 - Lees scene
+  description: ''
+  trigger:
+  - entity_id: counter.scene_counter1
+    platform: state
+    to: '4'
+  condition: []
+  action:
+  - scene: scene.default
+  - scene: scene.lezen
+  mode: single
+- id: '1596441880593'
+  alias: Battery low - notification
+  description: ''
+  trigger:
+  - below: '11.0'
+    entity_id: sensor.accuspanning
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      data:
+        subtitle: Energy state
+      message: Low battery🔋 shutting down soon.
+      #title: 🚐 Herbert
+    service: notify.mobile_app_hb
+  mode: single
+- id: '1596442014439'
+  alias: Battery low - shutdown
+  description: Will shutdown NodeMCU's and raspberry on low battery
+  trigger:
+  - below: '10.8'
+    entity_id: sensor.accuspanning
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      data:
+        subtitle: Energy state
+      message: Low battery🔋 shutting down now!
+      #title: 🚐 Herbert
+    service: notify.mobile_app_hb
+  - data: {}
+    entity_id: switch.rechtsboven_shutdown, switch.linksboven_shutdown, switch.accu_monitor_shutdown
+    service: switch.turn_on
+  - data: {}
+    service: shell_command.halt
+  mode: single
+- id: '1596719819457'
+  alias: test
+  description: ''
+  trigger:
+  - event: sunrise
+    platform: sun
+  condition: []
+  action:
+  - data:
+      data:
+        subtitle: Testdata
+      message: '{{ state_attr(''sensor.gps'', ''latitude'') }}, {{ state_attr(''sensor.gps'',
+        ''longitude'') }}'
+      #title: 🚐 Herbert
+    service: notify.mobile_app_hb
+  mode: single
+- id: '1598814983413'
+  alias: Wand uit, leeslamp uit
+  description: ''
+  trigger:
+  - entity_id: group.sides
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.leeslamp_links
+    service: light.turn_off
+  - data: {}
+    entity_id: light.leeslamp_rechts
+    service: light.turn_off
+  mode: single
+# - id: '1613431377413'
+#   alias: motion light on
+#   description: ''
+#   use_blueprint:
+#     path: homeassistant/motion_light.yaml
+#     input:
+#       no_motion_wait: '0'
+#       motion_entity: binary_sensor.beweging
+#       light_target:
+#         entity_id:
+#         - light.wand_links
+#         - light.wand_rechts
+- id: '1623933077080'
+  alias: Long press shutdown
+  description: ''
+  trigger:
+  - type: turned_on
+    platform: device
+    device_id: b4f9320f585c4197bd086f54c35e4a76
+    entity_id: binary_sensor.links_button_1
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
+  - type: turned_on
+    platform: device
+    device_id: b5e848509d9248ea81e7453bdccd391a
+    entity_id: binary_sensor.rechts_button_1
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
+  condition: []
+  action:
+  - scene: scene.pulse
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
+  - service: light.turn_on
+    data:
+      brightness: 200
+      effect: none
+      transition: 5
+    target:
+      entity_id:
+      - light.links_button_1_led
+      - light.links_button_2_led
+      - light.rechts_button_1_led
+      - light.rechts_button_2_led
+  - service: switch.turn_on
+    target:
+      entity_id:
+      - switch.accu_monitor_shutdown
+      - switch.linksboven_shutdown
+      - switch.rechtsboven_shutdown
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
+  - service: shell_command.halt
+  mode: single
+- id: '1623936037176'
+  alias: Al mot ik kruupe
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: device_tracker.herbertje
+    zone: zone.stevens
+    event: enter
+  condition: []
+  action:
+  - service: notify.hb_tel
+    data:
+      message: Al mot ik kruupe
+  mode: single
+- id: '1628608481704'
+  alias: stop laden bij 14
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.accuspanning
+    above: '14'
+  condition: []
+  action:
+  - service: switch.turn_off
+    target:
+      entity_id: switch.acculader
+  mode: single
+- id: '1628608647345'
+  alias: start laden bij 12
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.accuspanning
+    below: '12'
+  condition: []
+  action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.acculader
+  mode: single
