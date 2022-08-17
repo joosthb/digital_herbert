@@ -49,12 +49,12 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
-media_player:
-  - platform: mpd
-    host: 127.0.0.1
-  #- platform: vlc
-  #  name: "CAR-KIT"
-  #  arguments: "--alsa-audio-device=bluealsa:DEV=74:C0:18:1B:D0:01"
+#media_player:
+#  - platform: mpd
+#    host: 127.0.0.1
+#  - platform: vlc
+#    name: "CAR-KIT"
+#    arguments: "--alsa-audio-device=bluealsa:DEV=74:C0:18:1B:D0:01"
 
 
 recorder:
