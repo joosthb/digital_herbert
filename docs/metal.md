@@ -45,3 +45,18 @@ fix secrets.yaml
 [systemd config](https://community.home-assistant.io/t/autostart-using-systemd/199497)
 
 secrets in password vault.
+
+
+# /etc/default/gpsd
+Change config to get GPS working
+```
+# Devices gpsd should collect to at boot time.
+# They need to be read/writeable, either by user gpsd or the group dialout.
+DEVICES="/dev/ttyACM0"
+
+# Other options you want to pass to gpsd
+GPSD_OPTIONS=""
+
+# Automatically hot add/remove USB GPS devices via gpsdctl
+USBAUTO="false"
+```
