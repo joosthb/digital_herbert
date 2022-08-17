@@ -21,19 +21,53 @@ counter:
     initial: 0
     step: 1
 
-# Import gps data
 sensor:
+  # Import gps data
   - platform: gpsd
-  - platform: template
-    sensors:
-      energie_verbruik_totaal:
-        friendly_name: "Energie verbruik totaal"
-        unit_of_measurement: 'Wh'
-        value_template: "{{ states('sensor.dagtotaal_dynamo') | float + states('sensor.dagtotaal_solar') | float + states('sensor.dagtotaal_verbruikers') | float }}"
-      verbruik:
-        friendly_name: "Huidig verbruik"
-        unit_of_measurement: 'W'
-        value_template: "{{ states('sensor.vermogen_dynamo') | float + states('sensor.vermogen_solar') | float + states('sensor.vermogen_verbruikers') | float }}"
+  # Invert and integrate power values
+  - platform: integration
+    source: sensor.dyn_wal_inverted
+    name: dynamo_wal_energie
+    round: 2
+  - platform: integration
+    source: sensor.solar_inverted
+    name: solar_energie
+    round: 2
+  - platform: integration
+    source: sensor.vermogen_verbruikers
+    name: verbruikers_energie
+    round: 2
+  - platform: integration
+    source: sensor.invoeders
+    name: invoeders_energie
+    round: 2
+
+template:
+  - sensor:
+      - name: "dyn_wal_inverted"
+        unit_of_measurement: "W"
+        state_class: measurement
+        device_class: power
+        state: >
+          {% set vermogen_dynamo = states('sensor.vermogen_dynamo')|float*-1 %}
+          {{ vermogen_dynamo | abs if vermogen_dynamo > 0.0 else 0.0 }}
+      - name: "solar_inverted"
+        unit_of_measurement: "W"
+        state_class: measurement
+        device_class: power
+        state: >
+          {% set vermogen_solar = states('sensor.vermogen_solar')|float*-1 %}
+          {{ vermogen_solar | abs if vermogen_solar > 0.0 else 0.0 }}
+      - name: "invoeders"
+        unit_of_measurement: "W"
+        state_class: measurement
+        device_class: power
+        state: >
+          {% set vermogen_solar = states('sensor.vermogen_solar')|float*-1 %}
+          {% set vermogen_dynamo = states('sensor.vermogen_dynamo')|float*-1 %}
+          {% set invoeders = (vermogen_solar + vermogen_dynamo) | float %}
+          {{ invoeders | abs if invoeders > 0.0 else 0.0 }}
+
 
 
 # Create daily total usage
@@ -49,13 +83,6 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
-#media_player:
-#  - platform: mpd
-#    host: 127.0.0.1
-#  - platform: vlc
-#    name: "CAR-KIT"
-#    arguments: "--alsa-audio-device=bluealsa:DEV=74:C0:18:1B:D0:01"
-
 recorder:
   # only record herbert health status
   include:
@@ -67,9 +94,10 @@ recorder:
       - sensor.vermogen_solar
       - sensor.vermogen_verbruikers
       - sensor.accuspanning
-      - sensor.dagtotaal_dynamo
-      - sensor.dagtotaal_solar
-      - sensor.dagtotaal_verbruikers
+      - sensor.dynamo_wal_energie
+      - sensor.solar_energie
+      - sensor.verbruikers_energie
+      - sensor.invoeders_energie
       - sensor.gps
       - sensor.luchtvochtigheid
       - sensor.temperatuur
@@ -88,9 +116,10 @@ history:
       - sensor.vermogen_solar
       - sensor.vermogen_verbruikers
       - sensor.accuspanning
-      - sensor.dagtotaal_dynamo
-      - sensor.dagtotaal_solar
-      - sensor.dagtotaal_verbruikers
+      - sensor.dynamo_wal_energie
+      - sensor.solar_energie
+      - sensor.verbruikers_energie
+      - sensor.invoeders_energie
       - sensor.gps
       - sensor.luchtvochtigheid
       - sensor.temperatuur

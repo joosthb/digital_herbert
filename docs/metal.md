@@ -52,7 +52,7 @@ Change config to get GPS working
 ```
 # Devices gpsd should collect to at boot time.
 # They need to be read/writeable, either by user gpsd or the group dialout.
-DEVICES="/dev/ttyACM0"
+DEVICES="/dev/gps0"
 
 # Other options you want to pass to gpsd
 GPSD_OPTIONS=""

@@ -85,27 +85,6 @@ sensor:
               alpha: 0.5
               send_every: 60
 
-  - platform: total_daily_energy
-    name: "Dagtotaal solar"
-    power_id: power_solar
-    icon: mdi:solar-power
-    id: total_daily_solar_energy
-
-  - platform: total_daily_energy
-    name: "Dagtotaal verbruikers"
-    power_id: power_consumers
-    id: total_daily_consumer_energy
-
-  - platform: total_daily_energy
-    name: "Dagtotaal dynamo"
-    power_id: power_generator
-    id: total_daily_generator_energy
-
-
-# Enable time component to reset energy at midnight
-time:
-  - platform: homeassistant
-
 switch:
   - platform: shutdown
     name: "Accu monitor shutdown"

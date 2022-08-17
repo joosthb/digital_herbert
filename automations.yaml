@@ -94,6 +94,7 @@
       gps:
       - '{{ states.sensor.gps.attributes.latitude }}'
       - '{{ states.sensor.gps.attributes.longitude }}'
+    enabled: false
   - service: homeassistant.set_location
     data_template:
       latitude: '{{ states.sensor.gps.attributes.latitude }}'
