@@ -56,7 +56,6 @@ scene: !include scenes.yaml
 #    name: "CAR-KIT"
 #    arguments: "--alsa-audio-device=bluealsa:DEV=74:C0:18:1B:D0:01"
 
-
 recorder:
   # only record herbert health status
   include:
