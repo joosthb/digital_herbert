@@ -68,68 +68,93 @@
   name: Nacht
   entities:
     light.keuken:
+      supported_color_modes:
+      - rgb
       friendly_name: Keuken
+      supported_features: 40
       state: 'off'
-      supported_features: 57
     light.links_button_1_led:
-      brightness: 65
-      effect: None
       effect_list:
       - None
+      - Pulse
       - blink
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 65
+      effect: None
       friendly_name: Links - Button 1 LED
+      supported_features: 44
       state: 'on'
-      supported_features: 45
     light.links_button_2_led:
-      brightness: 65
-      effect: None
       effect_list:
       - None
+      - Pulse
       - blink
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 65
+      effect: None
       friendly_name: Links Button 2 LED
+      supported_features: 44
       state: 'on'
-      supported_features: 45
     light.rechts_button_1_led:
-      brightness: 65
-      effect: None
       effect_list:
       - None
+      - Pulse
       - blink
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 65
+      effect: None
       friendly_name: Rechts - Button 1 LED
+      supported_features: 44
       state: 'on'
-      supported_features: 45
     light.rechts_button_2_led:
-      brightness: 65
-      effect: None
       effect_list:
       - None
+      - Pulse
       - blink
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 65
+      effect: None
       friendly_name: Rechts - Button 2 LED
+      supported_features: 44
       state: 'on'
-      supported_features: 45
     light.spots:
+      supported_color_modes:
+      - onoff
       friendly_name: Spots
-      icon: mdi:spotlight
-      state: 'off'
       supported_features: 8
+      state: 'off'
     light.wand_links:
       effect_list:
       - None
       - Rainbow
       - Fast Random
       - Scan
+      supported_color_modes:
+      - rgb
       friendly_name: Wand links
+      supported_features: 44
       state: 'off'
-      supported_features: 61
     light.wand_rechts:
       effect_list:
       - None
       - Rainbow
       - Fast Random
       - Scan
+      supported_color_modes:
+      - rgb
       friendly_name: Wand rechts
+      supported_features: 44
       state: 'off'
-      supported_features: 61
+  icon: mdi:lightbulb-night
+  metadata: {}
 - id: '1594073664879'
   name: Pulse
   entities:
