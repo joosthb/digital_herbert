@@ -63,9 +63,9 @@ template:
         state_class: measurement
         device_class: power
         state: >
-          {% set vermogen_solar = states('sensor.vermogen_solar')|float*-1 %}
-          {% set vermogen_dynamo = states('sensor.vermogen_dynamo')|float*-1 %}
-          {% set invoeders = (vermogen_solar + vermogen_dynamo) | float %}
+          {% set vermogen_solar = states('sensor.vermogen_solar')|float(0)*-1 %}
+          {% set vermogen_dynamo = states('sensor.vermogen_dynamo')|float(0)*-1 %}
+          {% set invoeders = (vermogen_solar + vermogen_dynamo) | float(0) %}
           {{ invoeders | abs if invoeders > 0.0 else 0.0 }}
 
 
