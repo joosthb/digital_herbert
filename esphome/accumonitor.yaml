@@ -98,8 +98,8 @@ switch:
       #inverted: yes
       
   - platform: gpio
-    name: "Power converter"
-    id: power_converter
+    name: "Battery balancer"
+    id: battery_balancer
     restore_mode: ALWAYS_OFF
     pin:
       number: D5

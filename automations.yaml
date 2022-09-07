@@ -40,8 +40,11 @@
   - event: start
     platform: homeassistant
   action:
-  - entity_id: scene.default
-    service: scene.turn_on
+  - service: scene.turn_on
+    data:
+      transition: 0
+    target:
+      entity_id: scene.default
 - id: 60ed1e21396e46d7ae6e949c624aa310
   alias: 1 - Avond scene
   trigger:
@@ -49,8 +52,11 @@
     platform: state
     to: '1'
   action:
-  - entity_id: scene.avond
-    service: scene.turn_on
+  - service: scene.turn_on
+    data:
+      transition: 0
+    target:
+      entity_id: scene.avond
 - id: 8719caeb3bd444deacd57c0e37557ed8
   alias: 2 - Wit scene
   trigger:
@@ -58,8 +64,11 @@
     platform: state
     to: '2'
   action:
-  - entity_id: scene.wit
-    service: scene.turn_on
+  - service: scene.turn_on
+    data:
+      transition: 0
+    target:
+      entity_id: scene.wit
 - id: 81bbc14b6dbf4de98e1bfd3253635917
   alias: 3 - Laat scene
   trigger:
@@ -67,8 +76,11 @@
     platform: state
     to: '3'
   action:
-  - entity_id: scene.party
-    service: scene.turn_on
+  - service: scene.turn_on
+    data:
+      transition: 0
+    target:
+      entity_id: scene.laat
   mode: single
 - id: 7d575812e49d4ddcbf6a92667bd04e5a
   alias: 4 - Reset counter
