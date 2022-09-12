@@ -24,23 +24,19 @@ counter:
 sensor:
   # Import gps data
   - platform: gpsd
-  # Invert and integrate power values
+  # Integrate power values
   - platform: integration
     source: sensor.dyn_wal_inverted
     name: dynamo_wal_energie
-    round: 2
   - platform: integration
     source: sensor.solar_inverted
     name: solar_energie
-    round: 2
   - platform: integration
     source: sensor.vermogen_verbruikers
     name: verbruikers_energie
-    round: 2
   - platform: integration
     source: sensor.invoeders
     name: invoeders_energie
-    round: 2
 
 template:
   - sensor:
@@ -67,16 +63,6 @@ template:
           {% set vermogen_dynamo = states('sensor.vermogen_dynamo')|float(0)*-1 %}
           {% set invoeders = (vermogen_solar + vermogen_dynamo) | float(0) %}
           {{ invoeders | abs if invoeders > 0.0 else 0.0 }}
-
-
-
-# Create daily total usage
-#utility_meter:
-#  daily_energy:
-#    source: sensor.energy_total
-#    cycle: daily
-#    #unit_of_measurement: Wh
-
 
 group: !include groups.yaml
 automation: !include automations.yaml
