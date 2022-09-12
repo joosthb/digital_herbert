@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
         - name: hasscore
-          image: homeassistant/home-assistant:2022.3
+          image: homeassistant/home-assistant:2022.8
           ports:
             - containerPort: 8123
           volumeMounts:
@@ -35,7 +35,7 @@ spec:
       volumes:
         - name: hass-conf-storage
           hostPath:
-            path: "/root/digital_herbert"
+            path: "/home/pi/digital_herbert"
 ---
 kind: Deployment
 apiVersion: apps/v1
@@ -69,7 +69,7 @@ spec:
       volumes:
         - name: esphome-conf-storage
           hostPath:
-            path: "/root/digital_herbert/esphome"
+            path: "/home/pi/digital_herbert/esphome"
 ---
 apiVersion: v1
 kind: Service
