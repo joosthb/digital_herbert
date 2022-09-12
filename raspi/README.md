@@ -58,26 +58,3 @@ Confirm syncing
 ```
 sudo timedatectl status
 ```
-
-# Full setup instructions
-Flash SD card with Raspberry PI OS Lite (640bit) [Raspberry Pi Imager](https://www.raspberrypi.com/software/) and use the preferences button to set; uplink wifi network, hostname, authentication and locales.
-
-```
-# add following to /boot/cmdline.txt for k3s
-cgroup_memory=1 cgroup_enable=memory
-
-# update/upgrade os
-sudo apt update && sudo apt upgrade -y
-sudo apt install -y git
-
-
-curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" sh -
-
-# set up git access (eg deployment keys)
-git config --global user.email "you@example.com"
-git config --global user.name "Your Name"
-
-git clone git@github.com:joosthb/digital_herbert.git
-
-
-```
