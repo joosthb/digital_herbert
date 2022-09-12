@@ -74,6 +74,8 @@ sudo apt install -y git
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" sh -
 
 # set up git access (eg deployment keys)
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
 
 git clone git@github.com:joosthb/digital_herbert.git
 
