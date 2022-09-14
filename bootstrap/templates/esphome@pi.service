@@ -1,0 +1,12 @@
+[Unit]
+Description=ESPHome
+After=network-online.target
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=/home/%i/.homeassistant
+ExecStart=/srv/esphome/bin/esphome dashboard /home/%i/.homeassistant/esphome
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/srv/esphome/bin
+
+[Install]
+WantedBy=multi-user.target
