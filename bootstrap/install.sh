@@ -19,10 +19,10 @@ sudo apt-get install -y python3 python3-dev python3-venv python3-pip bluez libff
 sudo apt-get install -y chrony hostapd dnsmasq gpsd
 
 # graphical interface for driving the touch screen 
-sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox
+sudo apt-get install -y --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox
 
 # browser for showing gui
-sudo apt-get install --no-install-recommends chromium-browser
+sudo apt-get install -y --no-install-recommends chromium-browser
 
 # parse and write config files
 # set static-ip for wlan1 in dhcpcd
