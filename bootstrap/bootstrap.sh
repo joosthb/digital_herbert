@@ -16,14 +16,14 @@ ssh -q $1 "ssh-keyscan github.com >> ~/.ssh/known_hosts"
 # clone repo to default config dir
 ssh -q $1 "git clone git@github.com:joosthb/digital_herbert.git ~/.homeassistant"
 
-cd ~/.homeassistant
-
 echo "Enter github author info for future commits"
 echo "E-mail:"
 read EMAIL
-ssh -q $1 "git config --global user.email \"$EMAIL\""
 echo "Full name:"
 read FULLNAME
-ssh -q $1 "git config --global user.name \"$FULLNAME\""
-#config default pull strategy
-ssh -q $1 "git config pull.rebase false"
+
+ssh -q $1 "cd ~/.homeassistant; \
+  git config --global user.email \"$EMAIL\" \
+  git config --global user.name \"$FULLNAME\" \
+  #config default pull strategy \
+  git config pull.rebase false"
