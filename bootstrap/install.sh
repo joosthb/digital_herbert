@@ -18,6 +18,12 @@ sudo apt-get install -y python3 python3-dev python3-venv python3-pip bluez libff
 # for gps time sync and local wifi and gpsd service
 sudo apt-get install -y chrony hostapd dnsmasq gpsd
 
+# graphical interface for driving the touch screen 
+sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox
+
+# browser for showing gui
+sudo apt-get install --no-install-recommends chromium-browser
+
 # parse and write config files
 # set static-ip for wlan1 in dhcpcd
 cp ./templates/dhcpcd.conf /etc/
@@ -38,6 +44,13 @@ sudo cp ./templates/chrony.conf /etc/chrony/
 
 # gpsd
 sudo cp ./templates/gpsd /etc/default/
+
+# autostart config for gui, loading the chromium browser in kiosk mode
+sudo cp ./templates/autostart /etc/xdg/openbox/autostart
+
+# enable auto start profile
+sudo cp ./templates/bash_profile /home/pi/.bash_profile
+
 
 # install homeassistant in venv
 # https://www.home-assistant.io/installation/raspberrypi#install-home-assistant-core

@@ -16,6 +16,7 @@
 !bootstrap
 !gpsd
 !wlan0
+!autostart
 
 # Ignore folders.
 .storage
