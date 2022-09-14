@@ -18,6 +18,8 @@ ssh -q $1 "git config --global user.email \"$EMAIL\""
 echo "Full name:"
 read FULLNAME
 ssh -q $1 "git config --global user.name \"$FULLNAME\""
+#config default pull strategy
+ssh -q $1 "git config pull.rebase false"
 
 # auto accept fingerprint (unsafe)
 ssh -q $1 "ssh-keyscan github.com >> ~/.ssh/known_hosts"
