@@ -23,20 +23,20 @@ sudo apt-get install -y chrony hostapd dnsmasq gpsd
 cp ./templates/dhcpcd.conf /etc/
 
 # set dhcp lease range for wlan1 and disable gateway
-cp ./templates/dnsmasq.conf /etc/
+sudo cp ./templates/dnsmasq.conf /etc/
 
 # create accesspoint on wlan1
-envsubst < ./templates/hostapd.conf > /etc/hostapd/hostapd.conf
+sudo envsubst < ./templates/hostapd.conf > /etc/hostapd/hostapd.conf
 
 # bind 'uplink' to wlan0 interface
-cp ./templates/wlan0 /etc/network/interfaces.d/wlan0
-mv /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+sudo cp ./templates/wlan0 /etc/network/interfaces.d/wlan0
+sudo /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 
 # chrony
-cp ./templates/chrony.conf /etc/chrony/
+sudo cp ./templates/chrony.conf /etc/chrony/
 
 # gpsd
-cp ./templates/gpsd /etc/default/
+sudo cp ./templates/gpsd /etc/default/
 
 # install homeassistant in venv
 # https://www.home-assistant.io/installation/raspberrypi#install-home-assistant-core
@@ -54,7 +54,7 @@ python3 -m venv /srv/esphome
 
 # Create services
 # https://community.home-assistant.io/t/autostart-using-systemd/199497
-cp ./templates/*.service /etc/systemd/system/
+sudo cp ./templates/*.service /etc/systemd/system/
 sudo systemctl --system daemon-reload
 
 # enable services
