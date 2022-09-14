@@ -17,6 +17,7 @@
 !gpsd
 !wlan0
 !autostart
+!bash_profile
 
 # Ignore folders.
 .storage
