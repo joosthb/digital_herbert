@@ -7,6 +7,15 @@ server is k3s target.
 
 ## Digital herbert bootstrap
 
+# install alpine
+download aarch64 image at [alpine](https://alpinelinux.org/downloads/)
+download headless overlay [headless overlay](https://github.com/macmpi/alpine-linux-headless-bootstrap)
+
+extract both to bootable fat32 formatted sdcard
+tar xzvf alpine-rpi-3.16.2-aarch64.tar.gz -C /Volumes/UNTITLED
+
+add network to etc/wpa_supplicant.conf
+
 ```
 # activate sshd
 vi /etc/ssh/sshd.config
@@ -36,25 +45,4 @@ locally expose argocd api
 
 ```
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
-```
-
-## Time sync
-
-
-Since raspi doesn't have a RTC it depends on GPS for timesync. Home-assistant depends on a synced datetime so:
-
-To enable wait for timesync;
-```
-sudo systemctl enable systemd-time-wait-sync
-```
-
-manual timesync - 
-
-```
-sudo chronyc waitsync
-```
-
-Confirm syncing
-```
-sudo timedatectl status
 ```
