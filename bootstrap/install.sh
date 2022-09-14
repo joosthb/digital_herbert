@@ -26,11 +26,12 @@ cp ./templates/dhcpcd.conf /etc/
 sudo cp ./templates/dnsmasq.conf /etc/
 
 # create accesspoint on wlan1
-sudo envsubst < ./templates/hostapd.conf > /etc/hostapd/hostapd.conf
+envsubst < ./templates/hostapd.conf > hostapd.tmp
+sudo mv hostapd.tmp /etc/hostapd/hostapd.conf
 
 # bind 'uplink' to wlan0 interface
 sudo cp ./templates/wlan0 /etc/network/interfaces.d/wlan0
-sudo /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+sudo mv /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 
 # chrony
 sudo cp ./templates/chrony.conf /etc/chrony/
@@ -62,6 +63,7 @@ sudo systemctl enable home-assistant@pi
 sudo systemctl enable esphome@pi
 sudo systemctl unmask hostapd
 sudo systemctl enable hostapd
+sudo systemctl enable systemd-time-wait-sync
 
-# TODO chrony gpsd? waitsync
-# reboot
+echo "System installed succesfully! Press any key to reboot..."
+sudo reboot
