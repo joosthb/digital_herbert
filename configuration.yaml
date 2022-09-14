@@ -5,8 +5,9 @@ homeassistant:
     - type: trusted_networks
       trusted_networks:
         - 192.168.99.0/24
-      trusted_users:
-        192.168.99.0/24: 0329e83b43944107971af6871e31b252
+        - 127.0.0.1
+        - ::1
+      allow_bypass_login: true
 
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
