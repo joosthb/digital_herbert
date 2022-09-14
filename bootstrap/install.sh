@@ -64,6 +64,7 @@ python3 -m venv /srv/homeassistant
 sudo mkdir /srv/esphome
 sudo chown pi:pi /srv/esphome
 python3 -m venv /srv/esphome
+/srv/homeassistant/bin/python3 -m pip install wheel
 /srv/esphome/bin/pip3 install esphome
 
 # Create services
