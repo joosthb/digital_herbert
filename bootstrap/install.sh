@@ -66,4 +66,5 @@ sudo systemctl enable hostapd
 sudo systemctl enable systemd-time-wait-sync
 
 echo "System installed succesfully! Press any key to reboot..."
+read
 sudo reboot
