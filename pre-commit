@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Named
+PWD=`pwd`
+# Transparant
+# /Applications/draw.io.app/Contents/MacOS/draw.io -x -o $PWD/docs/Digital_Herbert.png -t --crop $PWD/docs/Digital_Herbert.drawio
+
+# White bg
+/Applications/draw.io.app/Contents/MacOS/draw.io -x -o $PWD/docs/Digital_Herbert.png --crop $PWD/docs/Digital_Herbert.drawio
