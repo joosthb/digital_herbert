@@ -18,6 +18,22 @@ counter:
     initial: 0
     step: 1
 
+# template switch for turning display on off
+switch:
+  - platform: template
+    switches:
+      touchscreen:
+        turn_on:
+          service: shell_command.display_on
+        turn_off:
+          service: shell_command.display_off
+
+ffmpeg:
+
+camera:
+  - platform: ffmpeg
+    input: /dev/video0
+
 sensor:
   # Import gps data
   - platform: gpsd
