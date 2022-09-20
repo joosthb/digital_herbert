@@ -18,6 +18,7 @@
 !wlan0
 !autostart
 !bash_profile
+!pre-commit
 
 # Ignore folders.
 .storage
