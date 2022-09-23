@@ -22,4 +22,4 @@ read EMAIL
 echo "Full name:"
 read FULLNAME
 
-ssh -q $1 "cd ~/.homeassistant; git config --global user.email \"$EMAIL\" git config --global user.name \"$FULLNAME\"; git config pull.rebase false"
+ssh -q $1 "cd ~/.homeassistant && git config --global user.email \"$EMAIL\" && git config --global user.name \"$FULLNAME\" && git config pull.rebase false"
