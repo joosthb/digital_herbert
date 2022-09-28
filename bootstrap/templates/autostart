@@ -1,7 +1,8 @@
 # Disable any form of screen saver / screen blanking / power management
 xset s off
 xset s noblank
-xset -dpms
+xset +dpms                 # enable DPMS (Energy Star) features
+xset dpms 60 0 0         # xset [dpms standby [ suspend [ off]]]
 
 # Allow quitting the X server with CTRL-ATL-Backspace
 setxkbmap -option terminate:ctrl_alt_bksp
