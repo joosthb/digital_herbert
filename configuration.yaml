@@ -13,10 +13,6 @@ homeassistant:
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-# Text to speech
-# tts:
-#   - platform: google_translate
-
 counter:
   scene_counter1:
     initial: 0
