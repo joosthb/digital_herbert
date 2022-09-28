@@ -1,10 +1,10 @@
 homeassistant:
   customize: !include customize.yaml
   auth_providers:
-    - type: homeassistant
     - type: trusted_networks
       trusted_networks:
         - 192.168.99.0/24
+        - 192.168.1.0/24
         - 127.0.0.1
         - ::1
       allow_bypass_login: true
@@ -110,6 +110,9 @@ history:
 
 shell_command:
   halt: sudo /sbin/halt
+  display_off: export DISPLAY=:0; xset dpms force off; xset dpms 60 0 0
+  display_on: export DISPLAY=:0; xset -dpms
+
 
   # entry for the Telegram Bot
 telegram_bot:
