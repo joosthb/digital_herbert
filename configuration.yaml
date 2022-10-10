@@ -1,4 +1,6 @@
 homeassistant:
+  media_dirs:
+    media: !secret mediadir
   customize: !include customize.yaml
   auth_providers:
     - type: trusted_networks
