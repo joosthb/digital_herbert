@@ -127,7 +127,7 @@ history:
 shell_command:
   halt: sudo /sbin/halt
   display_off: export DISPLAY=:0; xset dpms force off; xset dpms 60 0 0
-  display_on: export DISPLAY=:0; xset -dpms
+  display_on: export DISPLAY=:0; xset dpms 600 0 0
 
 
   # entry for the Telegram Bot
