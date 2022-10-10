@@ -143,22 +143,3 @@ notify:
     platform: telegram
     chat_id: 451219846
 
-#homekit:
-#  filter:
-#    include_domains:
-#      - switch
-#      - light
-
-# HomeKit start delay for stability funcks stuff up
-#homekit:
-#  auto_start: false
-
-#automation:
-#  - alias: 'Start HomeKit'
-#    trigger:
-#      - platform: homeassistant
-#        event: start
-#    action:
-#      - delay: 00:05  # Waits 5 minutes
-#      - service: homekit.start
-#
