@@ -8,6 +8,16 @@ homeassistant:
       trusted_users:
         192.168.99.0/24: 0329e83b43944107971af6871e31b252
 
+backup:
+
+# Create daily total usage
+#utility_meter:
+#  daily_energy:
+#    source: sensor.energy_total
+#    cycle: daily
+#    #unit_of_measurement: Wh
+
+
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:

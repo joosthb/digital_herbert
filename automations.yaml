@@ -172,7 +172,7 @@
         subtitle: Testdata
       message: '{{ state_attr(''sensor.gps'', ''latitude'') }}, {{ state_attr(''sensor.gps'',
         ''longitude'') }}'
-    service: notify.mobile_app_hb
+    service: notify.hb_tel
   mode: single
 - id: '1598814983413'
   alias: Wand uit, leeslamp uit
