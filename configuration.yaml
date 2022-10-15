@@ -40,11 +40,11 @@ switch:
         turn_off:
           service: shell_command.display_off
 
-ffmpeg:
-
-camera:
-  - platform: ffmpeg
-    input: /dev/video0
+#ffmpeg:
+#
+#camera:
+#  - platform: ffmpeg
+#    input: /dev/video0
 
 sensor:
   # Import gps data

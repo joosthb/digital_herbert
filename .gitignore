@@ -19,6 +19,7 @@
 !autostart
 !bash_profile
 !pre-commit
+!lovelace*
 
 # Ignore folders.
 .storage
