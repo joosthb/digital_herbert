@@ -286,3 +286,17 @@
     target:
       entity_id: switch.acculader
   mode: single
+- id: '1665425518140'
+  alias: Periodic backup
+  description: Call backup script each monday on 2am
+  trigger:
+  - platform: time
+    at: 02:00:00
+  condition:
+  - condition: time
+    weekday:
+    - mon
+  action:
+  - service: backup.create
+    data: {}
+  mode: single

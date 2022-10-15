@@ -1,1 +1,145 @@
-<mxfile host="app.diagrams.net" modified="2020-07-16T09:22:14.586Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36" etag="Gd9nZEmfrJ881UQdhKyd" version="13.4.4" type="device"><diagram id="c3HulzmsumwLP3YGqqfk" name="Page-1">7Zttb6M4EIB/TT5ShdekH5um6Z1uK1XKnu6+rRxwwKrBnDFNdn/9jR2TkpgqWSlA89KqDYzB2PN4xjM2GbiP6fqZozx5YRGmA2cYrQfudOA4tu0N4UNKfm4kwb2zEcScRPqiD8Gc/MJaqO+LSxLhYudCwRgVJN8VhizLcCh2ZIhzttq9bMno7lNzFGNDMA8RNaX/kEgkVb+C+4+CPzCJE/3osTPaFKSoulj3pEhQxFY1kfs0cB85Y2JzlK4fMZXKq/SyuW/2Sem2YRxn4pgbkvR1+jL/K//X4u7KZvNiNPYsXcs7oqXu8MAJKNQ3Wcgmi59aD8F/pWznZMkyYRWK0gNcYHv5+qMQjmL5KWu04G+ChMD8p6woRyGGzwzGR/UAaOmiukNraPs4h7Myi7BsuQ3Fq4QIPFd1uNMVDDSQJSKlulg2So8c29vWVtdM1U3MBV7XRFpTz5ilWKiW6lJnqKnpYVsN41VtDFRgkxr+QMuQHnbxtuYPMnCg4fwGKKcNUK4G9Z3l8J/ipZCWVOYLhnh0Trjc4IvhctvA5e3g4qob58nLr275Kry8NnjZmteUpUyQEMnOlItz4uR9MbPyGzDtqQym2VweklTN7HUFyX4DBvpASZyBTLC8Jv2GFpi+soIIwmTpggnBUriAyoIJCt9iheORUcbVs9yl+oFL1MMeinwTgQxBgqqTJVlLgBPdnmkihAxdHqQinFkYZc4dgeBlSQA0vwvhic4sQgIGy0zKC/iUABG15CmcKQqzFVkSy3bGd3kWnx70lmqNtNsA2m1tujuCdISKRNlGo74PYm0eDUifhaBLDJgn1XhK17GMcO/iNKJ3sUQ4KQRnb7g2HkbqV5oiobRJvo0Bh9vbq6jSacVit3FMbyBHV2myKwzhP+bWyFMWW5M4/gnNdj9MtYO+cY+vEjdhhTWyqjNfOugQ8R+LTQLUIvD+7fv+MPCcEelMn96h38Ue6U+Z7rjKXVe/76IPDqB9H44pkOfyOn3IrBSHCcqUKC+LZFFCM7IfKXrD7WQox4JzWstQrjOW0ryBtGVDkjbzxtJYA6smpzhSpmw5JzTcff69e2o3uEr+Efii2EpYWeAV428WQBVyFWwWyElaya3h/QnB76e6vXts9zqn6B6SqN5N/Ii5+Ub6JHF33/lyNfRuqE+N2pi4e0fdtGdzQ93CVN0laseA+ndOSfZmoIW+iF2iVT6k9m9MwCmJInnzhOOC/EILVZGko9Iy1WR/MvCnsqZSsEKvIJ8m7RkfNh6/y6zHM/X8jYGyQPTwemG6bgg/gk51bW6CPb/OQfDCohI0c1Habgrrx51q29zCqkZ2SIns53nr+5gtim4Vbi6gXJTCvSNi3G4Vbq5YXJTC/eBw+NGtwo/Yu7mt7Tas7Tbsk3e6tuuZSzzfcZpjjkTJ5XtYKIu27zfw6u2DpIThT4R6XwtnBcT3521Px6zH2HZL8XwzF3NB5rHkqouayfCdUSFzJIPORSJpipoa3yhpDUmVfdQnFRwV4EHyM9e1MX/3nQ/45sLFn5SC08mQwA3+6MNXgwSl0tlniyIfNLwndd5kjs0d2jMCM1O7kflsJu+WTNOLibcQ7PAuW98hmH/bXu9ye91Yuu17780/Ynv9ZrgNhjvu23DNpPdCAkJjfaH3gNBMU68z7Ngn03/YYSaqNzKfuadOyVQGuuuepIpzBsq4MG03JEaj03gouaO8/eqlKqt9gdV9+h8=</diagram></mxfile>
+<mxfile host="65bd71144e">
+    <diagram id="c3HulzmsumwLP3YGqqfk" name="Page-1">
+        <mxGraphModel dx="884" dy="413" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-1" value="&lt;b style=&quot;font-size: 14px&quot;&gt;2 - Battery space&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-2" value="&lt;b style=&quot;font-size: 14px&quot;&gt;3 - Top left cupboard&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-3" value="&lt;b style=&quot;font-size: 14px&quot;&gt;4 - Top right cupboard&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="521" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-4" value="&lt;b style=&quot;font-size: 14px&quot;&gt;1 - Domotica hub&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-5" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/rental-icon/240/wifi-128.png" parent="1" vertex="1">
+                    <mxGeometry x="40" y="120" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-25" value="" style="dashed=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.gmdl.gps;strokeColor=#737373;fillColor=#737373;shadow=0;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="200" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-27" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-25-128.png" parent="1" vertex="1">
+                    <mxGeometry x="200" y="160" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-28" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/car_battery-128.png" parent="1" vertex="1">
+                    <mxGeometry x="200" y="200" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-29" value="" style="pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.pushbutton_make;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="200" width="30" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-35" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/electronic-13/480/6-electronic-led-icon-2-128.png" parent="1" vertex="1">
+                    <mxGeometry x="360" y="160" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-36" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/doing-housework-part-1/64/house-09-128.png" parent="1" vertex="1">
+                    <mxGeometry x="521" y="200" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-38" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/rental-icon/240/wifi-128.png" parent="1" vertex="1">
+                    <mxGeometry x="40" y="160" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-39" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/rental-icon/240/wifi-128.png" parent="1" vertex="1">
+                    <mxGeometry x="200" y="120" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-40" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/rental-icon/240/wifi-128.png" parent="1" vertex="1">
+                    <mxGeometry x="360" y="120" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-41" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/rental-icon/240/wifi-128.png" parent="1" vertex="1">
+                    <mxGeometry x="521" y="120" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Uplink" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="120" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-42" value="Local AP" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="160" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-43" value="GPS Module" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="200" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-44" value="Local client" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="120" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-45" value="Local client" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="120" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-46" value="Local client" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="561" y="120" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-47" value="" style="pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.pushbutton_make;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="240" width="30" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-48" value="Temperature and&lt;br&gt;humidity sensor" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="160" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-49" value="Current and voltage&lt;br&gt;sensor" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="200" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-50" value="Ledstrip" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="160" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-51" value="Illuminated&lt;br&gt;pushbutton&amp;nbsp;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="200" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-53" value="Illuminated&lt;br&gt;pushbutton&amp;nbsp;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="240" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-54" value="" style="pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.pushbutton_make;" parent="1" vertex="1">
+                    <mxGeometry x="521" y="240" width="30" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-55" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/electronic-13/480/6-electronic-led-icon-2-128.png" parent="1" vertex="1">
+                    <mxGeometry x="521" y="160" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-56" value="" style="pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.pushbutton_make;" parent="1" vertex="1">
+                    <mxGeometry x="521" y="280" width="30" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-57" value="Ledstrip" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="561" y="160" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-58" value="Illuminated&lt;br&gt;pushbutton&amp;nbsp;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="561" y="240" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-59" value="Illuminated&lt;br&gt;pushbutton&amp;nbsp;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="561" y="280" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="hmPDMSKpX-r3w1oSs784-60" value="Led spots" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="561" y="200" width="70" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;b style=&quot;font-size: 14px&quot;&gt;5 -&amp;nbsp;&lt;/b&gt;&lt;b&gt;Refrigerator&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="680" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/rental-icon/240/wifi-128.png" vertex="1" parent="1">
+                    <mxGeometry x="680" y="120" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Local client" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="120" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="" style="pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.2-way_switch;" vertex="1" parent="1">
+                    <mxGeometry x="186.92" y="250" width="46.15" height="16" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="Balancer relay" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                    <mxGeometry x="238.07" y="249" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-25-128.png" vertex="1" parent="1">
+                    <mxGeometry x="683.0799999999999" y="157" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/car_battery-128.png" vertex="1" parent="1">
+                    <mxGeometry x="683.0799999999999" y="197" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="Temperature and&lt;br&gt;humidity sensor" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                    <mxGeometry x="723.0799999999999" y="157" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="Current and voltage&lt;br&gt;sensor" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                    <mxGeometry x="723.0799999999999" y="197" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="Compressor relay" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                    <mxGeometry x="722.15" y="246" width="110" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="" style="shape=mxgraph.pid.compressors_-_iso.compressor,_vacuum_pump;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;" vertex="1" parent="1">
+                    <mxGeometry x="687.08" y="242" width="26" height="26" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

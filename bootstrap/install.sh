@@ -19,10 +19,10 @@ sudo apt-get install -y python3 python3-dev python3-venv python3-pip bluez libff
 sudo apt-get install -y chrony hostapd dnsmasq gpsd
 
 # graphical interface for driving the touch screen 
-sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox
+sudo apt-get install -y --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox
 
 # browser for showing gui
-sudo apt-get install --no-install-recommends chromium-browser
+sudo apt-get install -y --no-install-recommends chromium-browser
 
 # parse and write config files
 # set static-ip for wlan1 in dhcpcd
@@ -49,32 +49,33 @@ sudo cp ./templates/gpsd /etc/default/
 sudo cp ./templates/autostart /etc/xdg/openbox/autostart
 
 # enable auto start profile
-sudo cp ./templates/bash_profile /home/pi/.bash_profile
+cp ./templates/bash_profile /home/$USER/.bash_profile
 
 
 # install homeassistant in venv
 # https://www.home-assistant.io/installation/raspberrypi#install-home-assistant-core
 sudo mkdir /srv/homeassistant
-sudo chown pi:pi /srv/homeassistant
+sudo chown $USER:$USER /srv/homeassistant
 python3 -m venv /srv/homeassistant
 /srv/homeassistant/bin/python3 -m pip install wheel
 /srv/homeassistant/bin/pip3 install homeassistant
 
 # install esphome in venv
 sudo mkdir /srv/esphome
-sudo chown pi:pi /srv/esphome
+sudo chown $USER:$USER /srv/esphome
 python3 -m venv /srv/esphome
 /srv/homeassistant/bin/python3 -m pip install wheel
 /srv/esphome/bin/pip3 install esphome
 
 # Create services
 # https://community.home-assistant.io/t/autostart-using-systemd/199497
-sudo cp ./templates/*.service /etc/systemd/system/
+sudo cp ./templates/esphome.service /etc/systemd/system/esphome@$USER.service
+sudo cp ./templates/home-assistant.service /etc/systemd/system/home-assistant@$USER.service
 sudo systemctl --system daemon-reload
 
 # enable services
-sudo systemctl enable home-assistant@pi
-sudo systemctl enable esphome@pi
+sudo systemctl enable home-assistant@$USER
+sudo systemctl enable esphome@$USER
 
 #TODO disabled for testenv
 # sudo systemctl unmask hostapd
