@@ -19,7 +19,7 @@
 !autostart
 !bash_profile
 !pre-commit
-!.storage/lovelace.lovelace_panel
+!lovelace.lovelace_panel
 
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
