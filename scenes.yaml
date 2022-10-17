@@ -1,6 +1,8 @@
 - id: '1593698904232'
   name: Default
   entities:
+    light.touchscreen:
+      state: "on"
     light.keuken:
       friendly_name: Keuken
       state: 'off'
@@ -73,6 +75,8 @@
       friendly_name: Keuken
       supported_features: 40
       state: 'off'
+    light.touchscreen:
+      state: "off"
     light.links_button_1_led:
       effect_list:
       - None
@@ -158,6 +162,8 @@
 - id: '1594073664879'
   name: Pulse
   entities:
+    light.touchscreen:
+      state: "on"
     light.links_button_1_led:
       effect_list:
       - None
@@ -268,6 +274,8 @@
 - id: '1594074104277'
   name: Avond
   entities:
+    light.touchscreen:
+      state: "on"
     light.spots:
       friendly_name: Spots
       icon: mdi:spotlight
@@ -318,6 +326,8 @@
 - id: '1594074183198'
   name: Wit
   entities:
+    light.touchscreen:
+      state: "on"
     light.keuken:
       friendly_name: Keuken
       state: 'off'
@@ -408,6 +418,8 @@
 - id: '1594074277963'
   name: Laat
   entities:
+    light.touchscreen:
+      state: "on"
     light.keuken:
       friendly_name: Keuken
       state: 'off'
@@ -498,6 +510,8 @@
 - id: '1594728287072'
   name: Lezen
   entities:
+    light.touchscreen:
+      state: "on"
     light.leeslamp_links:
       brightness: 130
       friendly_name: Leeslamp links
