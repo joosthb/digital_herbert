@@ -30,10 +30,10 @@ counter:
     initial: 0
     step: 1
 
-# template switch for turning display on off
-switch:
+# template light for turning display on off
+light:
   - platform: template
-    switches:
+    lights:
       touchscreen:
         turn_on:
           service: shell_command.display_on
