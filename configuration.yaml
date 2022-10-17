@@ -102,7 +102,7 @@ recorder:
       - binary_sensor.beweging
       - sensor.energie_verbruik_totaal
       - sensor.vermogen_dynamo
-      - sensor.vermogen_solar
+      - sensor.solar_inverted
       - sensor.vermogen_verbruikers
       - sensor.accuspanning
       - sensor.dynamo_wal_energie
@@ -124,7 +124,7 @@ history:
       - binary_sensor.beweging
       - sensor.energie_verbruik_totaal
       - sensor.vermogen_dynamo
-      - sensor.vermogen_solar
+      - sensor.solar_inverted
       - sensor.vermogen_verbruikers
       - sensor.accuspanning
       - sensor.dynamo_wal_energie
