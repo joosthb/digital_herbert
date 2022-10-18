@@ -77,11 +77,10 @@ sudo systemctl --system daemon-reload
 sudo systemctl enable home-assistant@$USER
 sudo systemctl enable esphome@$USER
 
-#TODO disabled for testenv
-# sudo systemctl unmask hostapd
-# sudo systemctl enable hostapd
-# sudo systemctl enable systemd-time-wait-sync
-# sudo systemctl disable userconfig
+sudo systemctl unmask hostapd
+sudo systemctl enable hostapd
+sudo systemctl enable systemd-time-wait-sync
+sudo systemctl disable userconfig
 
 
 echo "System installed succesfully! Press any key to reboot..."
