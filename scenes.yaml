@@ -118,11 +118,11 @@
       - blink
       supported_color_modes:
       - brightness
-      friendly_name: Links - Button 1 LED
-      supported_features: 44
       color_mode: brightness
       brightness: 65
       effect: None
+      friendly_name: Links - Button 1 LED
+      supported_features: 44
       state: 'on'
     light.links_button_2_led:
       effect_list:
@@ -131,11 +131,11 @@
       - blink
       supported_color_modes:
       - brightness
-      friendly_name: Links Button 2 LED
-      supported_features: 44
       color_mode: brightness
       brightness: 65
       effect: None
+      friendly_name: Links Button 2 LED
+      supported_features: 44
       state: 'on'
     light.rechts_button_1_led:
       effect_list:
@@ -144,11 +144,11 @@
       - blink
       supported_color_modes:
       - brightness
-      friendly_name: Rechts - Button 1 LED
-      supported_features: 44
       color_mode: brightness
       brightness: 65
       effect: None
+      friendly_name: Rechts - Button 1 LED
+      supported_features: 44
       state: 'on'
     light.rechts_button_2_led:
       effect_list:
@@ -157,11 +157,11 @@
       - blink
       supported_color_modes:
       - brightness
-      friendly_name: Rechts - Button 2 LED
-      supported_features: 44
       color_mode: brightness
       brightness: 65
       effect: None
+      friendly_name: Rechts - Button 2 LED
+      supported_features: 44
       state: 'on'
     light.spots:
       supported_color_modes:
@@ -191,7 +191,7 @@
       friendly_name: Wand rechts
       supported_features: 44
       state: 'off'
-  icon: mdi:lightbulb-night
+  icon: mdi:lightbulb-outline
   metadata: {}
 - id: '1594073664879'
   name: Pulse
@@ -319,8 +319,7 @@
       - onoff
       friendly_name: touchscreen
       supported_features: 0
-      color_mode: onoff
-      state: 'on'
+      state: 'off'
     light.spots:
       supported_color_modes:
       - onoff
@@ -375,7 +374,7 @@
       - 0.409
       effect: None
       state: 'on'
-  icon: mdi:lightbulb-night
+  icon: mdi:lightbulb-on-70
   metadata: {}
 - id: '1594074183198'
   name: Wit
@@ -400,11 +399,11 @@
       - blink
       supported_color_modes:
       - brightness
-      friendly_name: Links - Button 1 LED
-      supported_features: 44
       color_mode: brightness
       brightness: 255
       effect: None
+      friendly_name: Links - Button 1 LED
+      supported_features: 44
       state: 'on'
     light.links_button_2_led:
       effect_list:
@@ -413,11 +412,11 @@
       - blink
       supported_color_modes:
       - brightness
-      friendly_name: Links Button 2 LED
-      supported_features: 44
       color_mode: brightness
       brightness: 255
       effect: None
+      friendly_name: Links Button 2 LED
+      supported_features: 44
       state: 'on'
     light.rechts_button_1_led:
       effect_list:
@@ -426,11 +425,11 @@
       - blink
       supported_color_modes:
       - brightness
-      friendly_name: Rechts - Button 1 LED
-      supported_features: 44
       color_mode: brightness
       brightness: 255
       effect: None
+      friendly_name: Rechts - Button 1 LED
+      supported_features: 44
       state: 'on'
     light.rechts_button_2_led:
       effect_list:
@@ -439,11 +438,11 @@
       - blink
       supported_color_modes:
       - brightness
-      friendly_name: Rechts - Button 2 LED
-      supported_features: 44
       color_mode: brightness
       brightness: 255
       effect: None
+      friendly_name: Rechts - Button 2 LED
+      supported_features: 44
       state: 'on'
     light.spots:
       supported_color_modes:
@@ -500,7 +499,7 @@
       - 0.329
       effect: None
       state: 'on'
-  icon: mdi:spotlight
+  icon: mdi:lightbulb
   metadata: {}
 - id: '1594074277963'
   name: Laat
@@ -525,11 +524,11 @@
       - blink
       supported_color_modes:
       - brightness
-      friendly_name: Links - Button 1 LED
-      supported_features: 44
       color_mode: brightness
       brightness: 255
       effect: None
+      friendly_name: Links - Button 1 LED
+      supported_features: 44
       state: 'on'
     light.links_button_2_led:
       effect_list:
@@ -538,11 +537,11 @@
       - blink
       supported_color_modes:
       - brightness
-      friendly_name: Links Button 2 LED
-      supported_features: 44
       color_mode: brightness
       brightness: 255
       effect: None
+      friendly_name: Links Button 2 LED
+      supported_features: 44
       state: 'on'
     light.rechts_button_1_led:
       effect_list:
@@ -551,11 +550,11 @@
       - blink
       supported_color_modes:
       - brightness
-      friendly_name: Rechts - Button 1 LED
-      supported_features: 44
       color_mode: brightness
       brightness: 255
       effect: None
+      friendly_name: Rechts - Button 1 LED
+      supported_features: 44
       state: 'on'
     light.rechts_button_2_led:
       effect_list:
@@ -564,11 +563,11 @@
       - blink
       supported_color_modes:
       - brightness
-      friendly_name: Rechts - Button 2 LED
-      supported_features: 44
       color_mode: brightness
       brightness: 255
       effect: None
+      friendly_name: Rechts - Button 2 LED
+      supported_features: 44
       state: 'on'
     light.spots:
       supported_color_modes:
@@ -624,7 +623,7 @@
       - 0.392
       effect: None
       state: 'on'
-  icon: mdi:weather-night
+  icon: mdi:lightbulb-on-30
   metadata: {}
 - id: '1594728287072'
   name: Lezen
