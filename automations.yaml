@@ -300,3 +300,22 @@
   - service: backup.create
     data: {}
   mode: single
+- id: '1666263105048'
+  alias: gpsd restart
+  description: restart gpsd if there's no gps location
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.gps
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+    attribute: latitude
+    above: -0.1
+    below: 0.1
+    value_template: ''
+  condition: []
+  action:
+  - service: shell_command.restart_gpsd
+    data: {}
+  mode: single
