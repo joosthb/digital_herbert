@@ -113,8 +113,9 @@ recorder:
       - sensor.luchtvochtigheid
       - sensor.temperatuur
       - zone.home
-     # And keep them long
-  purge_keep_days: 60
+  # Only commit db to disk every 5 minutes.
+  commit_interval: 300
+  
 
 history:
   # only show herbert health status
