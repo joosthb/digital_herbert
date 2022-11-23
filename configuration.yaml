@@ -13,15 +13,6 @@ homeassistant:
 
 backup:
 
-# Create daily total usage
-#utility_meter:
-#  daily_energy:
-#    source: sensor.energy_total
-#    cycle: daily
-#    #unit_of_measurement: Wh
-
-
-
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
@@ -116,27 +107,6 @@ recorder:
   # Only commit db to disk every 5 minutes.
   commit_interval: 300
   
-
-history:
-  # only show herbert health status
-  include:
-    entities:
-      - switch.acculader
-      - binary_sensor.beweging
-      - sensor.energie_verbruik_totaal
-      - sensor.vermogen_dynamo
-      - sensor.solar_inverted
-      - sensor.vermogen_verbruikers
-      - sensor.accuspanning
-      - sensor.dynamo_wal_energie
-      - sensor.solar_energie
-      - sensor.verbruikers_energie
-      - sensor.invoeders_energie
-      - sensor.gps
-      - sensor.luchtvochtigheid
-      - sensor.temperatuur
-      - zone.home
-
 shell_command:
   halt: sudo /sbin/halt
   display_off: export DISPLAY=:0; xset dpms force off; xset dpms 60 0 0
