@@ -137,7 +137,7 @@
       data:
         subtitle: Energy state
       message: "Low battery\U0001F50B shutting down soon."
-    service: notify.mobile_app_hb
+    service: notify.hb_tel
   mode: single
 - id: '1596442014439'
   alias: Battery low - shutdown
@@ -152,7 +152,7 @@
       data:
         subtitle: Energy state
       message: "Low battery\U0001F50B shutting down now!"
-    service: notify.mobile_app_hb
+    service: notify.hb_tel
   - data: {}
     entity_id: switch.rechtsboven_shutdown, switch.linksboven_shutdown, switch.accu_monitor_shutdown
     service: switch.turn_on
