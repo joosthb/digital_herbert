@@ -12,8 +12,8 @@ else
     echo ".env file not found"
 fi
 
-# install home assistant prereqs
-sudo apt-get install -y python3 python3-dev python3-venv python3-pip bluez libffi-dev libssl-dev libjpeg-dev zlib1g-dev autoconf build-essential libopenjp2-7 libtiff5 libturbojpeg0-dev tzdata
+# install docker
+curl -sSL https://get.docker.com | sh
 
 # for gps time sync and local wifi and gpsd service
 sudo apt-get install -y chrony hostapd dnsmasq gpsd
@@ -51,31 +51,8 @@ sudo cp ./templates/autostart /etc/xdg/openbox/autostart
 # enable auto start profile
 cp ./templates/bash_profile /home/$USER/.bash_profile
 
-
-# install homeassistant in venv
-# https://www.home-assistant.io/installation/raspberrypi#install-home-assistant-core
-sudo mkdir /srv/homeassistant
-sudo chown $USER:$USER /srv/homeassistant
-python3 -m venv /srv/homeassistant
-/srv/homeassistant/bin/python3 -m pip install wheel
-/srv/homeassistant/bin/pip3 install homeassistant
-
-# install esphome in venv
-sudo mkdir /srv/esphome
-sudo chown $USER:$USER /srv/esphome
-python3 -m venv /srv/esphome
-/srv/homeassistant/bin/python3 -m pip install wheel
-/srv/esphome/bin/pip3 install esphome
-
-# Create services
-# https://community.home-assistant.io/t/autostart-using-systemd/199497
-sudo cp ./templates/esphome.service /etc/systemd/system/esphome@$USER.service
-sudo cp ./templates/home-assistant.service /etc/systemd/system/home-assistant@$USER.service
-sudo systemctl --system daemon-reload
-
-# enable services
-sudo systemctl enable home-assistant@$USER
-sudo systemctl enable esphome@$USER
+# add self to docker group
+sudo usermod -a -G docker $USER
 
 sudo systemctl unmask hostapd
 sudo systemctl enable hostapd
@@ -86,3 +63,7 @@ sudo systemctl disable userconfig
 echo "System installed succesfully! Press any key to reboot..."
 read
 sudo reboot
+
+# to perform after reboot
+# start esphome and docker
+cd ~/.homeassistant && docker compose up -d

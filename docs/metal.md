@@ -8,6 +8,10 @@ with [Raspberry Pi OS Lite 64 bit](https://www.raspberrypi.org/downloads/raspber
 
 ## Deploy
 - populate secrets.yaml and .env, see example.
+```
+scp .env herbert:/home/$USER/.homeassistant/bootstrap/
+scp ../secrets.yaml herbert:/home/$USER/.homeassistant/
+ ```
 - store above files in your personal password manager
 - Execute bootstrap script
 
