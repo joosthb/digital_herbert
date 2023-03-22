@@ -12,8 +12,8 @@ else
     echo ".env file not found"
 fi
 
-# install home assistant prereqs docker
-sudo apt-get install -y docker libseccomp
+# install docker
+curl -sSL https://get.docker.com | sh
 
 # for gps time sync and local wifi and gpsd service
 sudo apt-get install -y chrony hostapd dnsmasq gpsd
