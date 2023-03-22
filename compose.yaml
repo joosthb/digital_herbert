@@ -14,6 +14,7 @@ services:
     image: ghcr.io/esphome/esphome
     volumes:
       - ./esphome:/config
+      - ./secrets.yaml:/config/secrets.yaml
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
     privileged: true
