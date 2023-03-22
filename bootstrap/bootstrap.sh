@@ -13,13 +13,17 @@ echo "Add key above to github repo as deployment key and press enter..."
 read
 # auto accept fingerprint (unsafe)
 ssh -q $1 "ssh-keyscan github.com >> ~/.ssh/known_hosts"
+
+#todo change branch
 # clone repo to default config dir
-ssh -q $1 "git clone git@github.com:joosthb/digital_herbert.git ~/.homeassistant"
+ssh -q $1 "git clone --branch dockergit@github.com:joosthb/digital_herbert.git ~/.homeassistant"
 
 echo "Enter github author info for future commits"
 echo "E-mail:"
 read EMAIL
 echo "Full name:"
 read FULLNAME
+
+
 
 ssh -q $1 "cd ~/.homeassistant && git config --global user.email \"$EMAIL\" && git config --global user.name \"$FULLNAME\" && git config pull.rebase false"
