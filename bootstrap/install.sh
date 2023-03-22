@@ -65,5 +65,5 @@ read
 sudo reboot
 
 # to perform after reboot
-# start homeassistant service from docker (only use esphome on local machine)
-cd ~/.homeassistant && docker compose up -d homeassistant
+# start esphome and docker
+cd ~/.homeassistant && docker compose up -d
