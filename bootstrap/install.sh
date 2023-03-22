@@ -51,8 +51,8 @@ sudo cp ./templates/autostart /etc/xdg/openbox/autostart
 # enable auto start profile
 cp ./templates/bash_profile /home/$USER/.bash_profile
 
-# start docker compose file
-cd ~/.homeassistant && docker compose up -d
+# add self to docker group
+sudo usermod -a -G docker $USER
 
 sudo systemctl unmask hostapd
 sudo systemctl enable hostapd
@@ -63,3 +63,7 @@ sudo systemctl disable userconfig
 echo "System installed succesfully! Press any key to reboot..."
 read
 sudo reboot
+
+# to perform after reboot
+# start homeassistant service from docker (only use esphome on local machine)
+cd ~/.homeassistant && docker compose up -d homeassistant
