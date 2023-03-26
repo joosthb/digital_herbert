@@ -26,7 +26,7 @@ sudo apt-get install -y --no-install-recommends chromium-browser
 
 # parse and write config files
 # set static-ip for wlan1 in dhcpcd
-cp ./templates/dhcpcd.conf /etc/
+sudo cp ./templates/dhcpcd.conf /etc/
 
 # set dhcp lease range for wlan1 and disable gateway
 sudo cp ./templates/dnsmasq.conf /etc/
@@ -51,8 +51,16 @@ sudo cp ./templates/autostart /etc/xdg/openbox/autostart
 # enable auto start profile
 cp ./templates/bash_profile /home/$USER/.bash_profile
 
+
+cp ./templates/bash_profile /home/$USER/.bash_profile
+
 # add self to docker group
 sudo usermod -a -G docker $USER
+
+# create named pipe to relay container commands to host
+mkfifo ~/containerpipe
+
+
 
 sudo systemctl unmask hostapd
 sudo systemctl enable hostapd
