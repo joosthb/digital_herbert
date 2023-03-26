@@ -51,17 +51,16 @@ sudo cp ./templates/autostart /etc/xdg/openbox/autostart
 # enable auto start profile
 cp ./templates/bash_profile /home/$USER/.bash_profile
 
-
-cp ./templates/bash_profile /home/$USER/.bash_profile
-
 # add self to docker group
 sudo usermod -a -G docker $USER
 
 # create named pipe to relay container commands to host
 mkfifo ~/containerpipe
 
+# add namedpipe eval script to boot via cron
+(crontab -l 2>/dev/null; echo "@reboot $HOME/.homeassistant/bootstrap/templates/named_pipe.sh") | crontab -
 
-
+# enable services
 sudo systemctl unmask hostapd
 sudo systemctl enable hostapd
 sudo systemctl enable systemd-time-wait-sync
