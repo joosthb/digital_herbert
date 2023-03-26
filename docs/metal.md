@@ -15,6 +15,7 @@ scp ../secrets.yaml herbert:/home/$USER/.homeassistant/
 - store above files in your personal password manager
 - Execute bootstrap script
 
+- Use ```sudo raspi-config``` tool to config autologin.
 
 ## GPS time sync trouble
 Since raspi doesn't have a RTC it depends on GPS for timesync. Home-assistant depends on a synced datetime so:
