@@ -106,13 +106,13 @@ recorder:
       - zone.home
   # Only commit db to disk every 5 minutes.
   commit_interval: 300
-  
-shell_command:
-  halt: sudo /sbin/halt
-  display_off: export DISPLAY=:0; xset dpms force off; xset dpms 60 0 0
-  display_on: export DISPLAY=:0; xset -dpms
-  restart_gpsd: sudo systemctl restart gpsd
 
+# shell commands executed through named pipe, mounted on host
+shell_command:
+  halt: echo "sudo /sbin/halt" > /containerpipe
+  display_off: echo "export DISPLAY=:0; xset dpms force off; xset dpms 60 0 0" > /containerpipe
+  display_on: echo "export DISPLAY=:0; xset -dpms" > /containerpipe
+  restart_gpsd: echo "sudo systemctl restart gpsd" > /containerpipe
 
   # entry for the Telegram Bot
 telegram_bot:

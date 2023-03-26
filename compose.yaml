@@ -6,6 +6,7 @@ services:
     volumes:
       - .:/config
       - /etc/localtime:/etc/localtime:ro
+      - ../containerpipe:/containerpipe
     restart: unless-stopped
     privileged: true
     network_mode: host
