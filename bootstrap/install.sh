@@ -60,7 +60,9 @@ sudo systemctl enable systemd-time-wait-sync
 sudo systemctl disable userconfig
 
 
-echo "System installed succesfully! Press any key to reboot..."
+echo "System installed succesfully!"
+echo "Run \"cd ~/.homeassistant && docker compose up -d\" after reboot."
+echo "Press any key to reboot..."
 read
 sudo reboot
 
