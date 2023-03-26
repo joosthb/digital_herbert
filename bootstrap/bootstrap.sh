@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# script to bootstrap raspberry pi after ininial install.
+# updates os, installs git, configures deploy key on github repo
+# and clones repo
+
 if [ -z $1 ]
 then
   echo "Please define SSH target eg; example@raspberrypi"
@@ -16,7 +20,7 @@ ssh -q $1 "ssh-keyscan github.com >> ~/.ssh/known_hosts"
 
 #todo change branch
 # clone repo to default config dir
-ssh -q $1 "git clone --branch docker git@github.com:joosthb/digital_herbert.git ~/.homeassistant"
+ssh -q $1 "git clone git@github.com:joosthb/digital_herbert.git ~/.homeassistant"
 
 echo "Enter github author info for future commits"
 echo "E-mail:"
