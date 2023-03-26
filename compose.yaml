@@ -17,6 +17,8 @@ services:
       - ./esphome:/config
       - ./secrets.yaml:/config/secrets.yaml
       - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 6052:6052
     restart: unless-stopped
-    privileged: true
-    network_mode: host
+    # privileged: true
+    # network_mode: host
