@@ -41,5 +41,5 @@ Added car-radio as [bluetooth audio device](https://github.com/evzone/hassio-blu
 compiling esphome firmware is pretty heavy on a raspberry so local (laptop) compile helps. You can run this locally like this:
 
 ```
-docker compose run esphome compile *.yaml
+docker compose run --rm esphome compile *.yaml
 ```
