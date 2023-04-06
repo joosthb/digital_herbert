@@ -36,3 +36,10 @@ Same but 102 LEDs and a relay to switch the LED-spots on the ceiling.
 ## Home Assistant configuration
 ### Bluetooth
 Added car-radio as [bluetooth audio device](https://github.com/evzone/hassio-bluepiaudio).
+
+## Local compile esphome
+compiling esphome firmware is pretty heavy on a raspberry so local (laptop) compile helps. You can run this locally like this:
+
+```
+docker compose run esphome compile *.yaml
+```
