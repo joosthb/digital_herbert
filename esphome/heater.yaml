@@ -2,8 +2,8 @@ esphome:
   name: heater
   platform: ESP32
   board: esp-wrover-kit
-  #includes:
-  #  - heater.h
+  includes:
+    - heater.h
 
 wifi:
   ssid: !secret wifi_ssid
