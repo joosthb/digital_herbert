@@ -42,4 +42,6 @@ compiling esphome firmware is pretty heavy on a raspberry so local (laptop) comp
 
 ```
 docker compose run --rm esphome compile *.yaml
+# to run on central server
+sudo docker-compose run --rm -p 6053:6052 esphome dashboard /config
 ```
