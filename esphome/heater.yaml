@@ -21,8 +21,10 @@ captive_portal:
 logger:
   level: DEBUG
 
+
 api:
-  password: !secret device_passwd
+  encryption:
+    key: !secret device_key
 
 ota:
   password: !secret device_passwd
