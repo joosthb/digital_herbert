@@ -15,7 +15,7 @@
 !bootstrap/templates
 !bootstrap
 !gpsd
-!wlan0
+!wlan1
 !autostart
 !bash_profile
 !pre-commit

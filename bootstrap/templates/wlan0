@@ -1,5 +1,5 @@
-auto wlan0
-allow-hotplug wlan0
+auto wlan_
+allow-hotplug wlan_
 wireless-power off
-iface wlan0 inet dhcp
-  wpa-conf /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+iface wlan_ inet dhcp
+  wpa-conf /etc/wpa_supplicant/wpa_supplicant-wlan_.conf

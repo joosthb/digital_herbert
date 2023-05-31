@@ -25,19 +25,19 @@ sudo apt-get install -y --no-install-recommends xserver-xorg x11-xserver-utils x
 sudo apt-get install -y --no-install-recommends chromium-browser
 
 # parse and write config files
-# set static-ip for wlan1 in dhcpcd
+# set static-ip for wlan0 in dhcpcd
 sudo cp ./templates/dhcpcd.conf /etc/
 
-# set dhcp lease range for wlan1 and disable gateway
+# set dhcp lease range for wlan0 and disable gateway
 sudo cp ./templates/dnsmasq.conf /etc/
 
-# create accesspoint on wlan1
+# create accesspoint on wlan0
 envsubst < ./templates/hostapd.conf > hostapd.tmp
 sudo mv hostapd.tmp /etc/hostapd/hostapd.conf
 
-# bind 'uplink' to wlan0 interface
-sudo cp ./templates/wlan0 /etc/network/interfaces.d/wlan0
-sudo mv /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+# bind 'uplink' to wlan1 interface
+sudo cp ./templates/wlan1 /etc/network/interfaces.d/wlan1
+sudo mv /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant-wlan1.conf
 
 # chrony
 sudo cp ./templates/chrony.conf /etc/chrony/
