@@ -181,6 +181,11 @@
   - entity_id: group.sides
     platform: state
     to: 'off'
+  - platform: state
+    entity_id:
+    - light.wand_links
+    - light.wand_rechts
+    to: 'off'
   condition: []
   action:
   - data: {}
