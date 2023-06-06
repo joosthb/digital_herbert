@@ -2,4 +2,4 @@
 docker compose pull
 docker compose up -d
 # remove old images
-docker image prune -af
+# docker image prune -af
