@@ -20,5 +20,25 @@ services:
     ports:
       - 6052:6052
     restart: unless-stopped
-    # privileged: true
-    # network_mode: host
+  batmon-ha:
+    container_name: batmon_ha
+    image: joosthb/batmon_ha
+    restart: unless-stopped
+    privileged: true
+    volumes:
+      - ./options.json:/data/options.json
+      - /var/run/dbus/:/var/run/dbus/:z
+  mosquitto:
+    container_name: mosquitto
+    image: eclipse-mosquitto
+    restart: unless-stopped
+    ports:
+      - "1883:1883/tcp"
+    environment:
+      - TZ=Europe/Amsterdam
+    volumes:
+      - /opt/mosquitto/config:/mosquitto/config
+      - /opt/mosquitto/data:/mosquitto/data
+      - /opt/mosquitto/log:/mosquitto/log
+    stdin_open: true
+    tty: true
