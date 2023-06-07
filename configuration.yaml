@@ -31,12 +31,6 @@ light:
         turn_off:
           service: shell_command.display_off
 
-#ffmpeg:
-#
-#camera:
-#  - platform: ffmpeg
-#    input: /dev/video0
-
 sensor:
   # Import gps data
   - platform: gpsd
@@ -79,6 +73,20 @@ template:
           {% set vermogen_dynamo = states('sensor.vermogen_dynamo')|float(0)*-1 %}
           {% set invoeders = (vermogen_solar + vermogen_dynamo) | float(0) %}
           {{ invoeders | abs if invoeders > 0.0 else 0.0 }}
+      - name: "accu_charge_energy"
+        unit_of_measurement: "kWh"
+        state_class: total
+        device_class: energy
+        state: >
+          {% set accu_charge = states('sensor.accu_total_energy_charge_meter')|float(0) %}
+          {{ accu_charge | abs if accu_charge > 0.0 else 0.0 }}
+      - name: "accu_discharge_energy"
+        unit_of_measurement: "kWh"
+        state_class: total
+        device_class: energy
+        state: >
+          {% set accu_discharge = states('sensor.accu_total_energy_discharge_meter')|float(0) %}
+          {{ accu_discharge | abs if accu_discharge > 0.0 else 0.0 }}
 
 group: !include groups.yaml
 automation: !include automations.yaml
@@ -98,6 +106,8 @@ recorder:
       - sensor.accuspanning
       - sensor.dynamo_wal_energie
       - sensor.solar_energie
+      - sensor.accu_charge_energy
+      - sensor.accu_discharge_energy
       - sensor.verbruikers_energie
       - sensor.invoeders_energie
       - sensor.gps
