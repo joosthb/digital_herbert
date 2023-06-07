@@ -104,6 +104,7 @@ recorder:
       - sensor.luchtvochtigheid
       - sensor.temperatuur
       - sensor.accu_soc
+      - sensor.accu_power
       - zone.home
   # Only commit db to disk every 5 minutes.
   commit_interval: 300
