@@ -16,11 +16,6 @@ backup:
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-counter:
-  scene_counter1:
-    initial: 0
-    step: 1
-
 # template light for turning display on off
 light:
   - platform: template
