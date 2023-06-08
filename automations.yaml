@@ -22,76 +22,6 @@
       data:
         subtitle: System state
   mode: single
-- alias: Update scene counter
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.links_button_1, binary_sensor.rechts_button_1
-    to: 'on'
-  action:
-    service: counter.increment
-    entity_id: counter.scene_counter1
-  id: 64bc608240364fe98450e8c653a817ca
-- id: 664e36d2843349d38370aff68b9abd06
-  alias: 0 - Default scene
-  trigger:
-  - entity_id: counter.scene_counter1
-    platform: state
-    to: '0'
-  - event: start
-    platform: homeassistant
-  action:
-  - service: scene.turn_on
-    data:
-      transition: 0
-    target:
-      entity_id: scene.default
-- id: 60ed1e21396e46d7ae6e949c624aa310
-  alias: 1 - Avond scene
-  trigger:
-  - entity_id: counter.scene_counter1
-    platform: state
-    to: '1'
-  action:
-  - service: scene.turn_on
-    data:
-      transition: 0
-    target:
-      entity_id: scene.avond
-- id: 8719caeb3bd444deacd57c0e37557ed8
-  alias: 2 - Wit scene
-  trigger:
-  - entity_id: counter.scene_counter1
-    platform: state
-    to: '2'
-  action:
-  - service: scene.turn_on
-    data:
-      transition: 0
-    target:
-      entity_id: scene.wit
-- id: 81bbc14b6dbf4de98e1bfd3253635917
-  alias: 3 - Laat scene
-  trigger:
-  - entity_id: counter.scene_counter1
-    platform: state
-    to: '3'
-  action:
-  - service: scene.turn_on
-    data:
-      transition: 0
-    target:
-      entity_id: scene.laat
-  mode: single
-- id: 7d575812e49d4ddcbf6a92667bd04e5a
-  alias: 4 - Reset counter
-  trigger:
-  - entity_id: counter.scene_counter1
-    platform: state
-    to: '4'
-  action:
-  - entity_id: counter.scene_counter1
-    service: counter.reset
-  mode: single
 - id: '1594127240826'
   alias: Update location
   description: Based on GPS module
@@ -111,18 +41,6 @@
     data_template:
       latitude: '{{ states.sensor.gps.attributes.latitude }}'
       longitude: '{{ states.sensor.gps.attributes.longitude }}'
-  mode: single
-- id: '1594728365026'
-  alias: 4 - Lees scene
-  description: ''
-  trigger:
-  - entity_id: counter.scene_counter1
-    platform: state
-    to: '4'
-  condition: []
-  action:
-  - scene: scene.default
-  - scene: scene.lezen
   mode: single
 - id: '1596441880593'
   alias: Battery low - notification
@@ -160,7 +78,7 @@
     service: shell_command.halt
   mode: single
 - id: '1596719819457'
-  alias: test
+  alias: Notify GPS location
   description: ''
   trigger:
   - event: sunrise
@@ -251,46 +169,6 @@
   - service: shell_command.halt
     data: {}
   mode: single
-- id: '1623936037176'
-  alias: Al mot ik kruupe
-  description: ''
-  trigger:
-  - platform: zone
-    entity_id: device_tracker.herbertje
-    zone: zone.stevens
-    event: enter
-  condition: []
-  action:
-  - service: notify.hb_tel
-    data:
-      message: Al mot ik kruupe
-  mode: single
-- id: '1628608481704'
-  alias: stop laden bij 14
-  description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.accuspanning
-    above: '14'
-  condition: []
-  action:
-  - service: switch.turn_off
-    target:
-      entity_id: switch.acculader
-  mode: single
-- id: '1628608647345'
-  alias: start laden bij 12
-  description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.accuspanning
-    below: '12'
-  condition: []
-  action:
-  - service: switch.turn_on
-    target:
-      entity_id: switch.acculader
-  mode: single
 - id: '1665425518140'
   alias: Periodic backup
   description: Call backup script each monday on 2am
@@ -323,4 +201,29 @@
   action:
   - service: shell_command.restart_gpsd
     data: {}
+  mode: single
+- id: '1686217243622'
+  alias: Scene cycle
+  description: automation to cycle through list of scenes triggered by button
+  trigger:
+  - type: turned_on
+    platform: device
+    device_id: c4068cc5c54c348e6e40f48afd30837a
+    entity_id: binary_sensor.links_button_1
+    domain: binary_sensor
+  - type: turned_on
+    platform: device
+    device_id: cf6b1a441928c0a76343fee507569855
+    entity_id: binary_sensor.rechts_button_1
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: input_select.select_next
+    data:
+      cycle: true
+    target:
+      entity_id: input_select.scene_selector
+  - service: scene.turn_on
+    target:
+      entity_id: '{{ states(''input_select.scene_selector'') }}'
   mode: single
