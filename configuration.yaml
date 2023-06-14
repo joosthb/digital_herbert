@@ -93,7 +93,9 @@ recorder:
       - sensor.luchtvochtigheid
       - sensor.temperatuur
       - sensor.accu_soc
+      - sensor.accu_total_charge_meter
       - sensor.accu_power
+      - sensor.accu_cell_voltages_delta
       - zone.home
       - sensor.accu_total_energy_charge_meter
       - sensor.accu_total_energy_discharge_meter

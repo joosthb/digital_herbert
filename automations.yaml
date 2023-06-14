@@ -227,3 +227,96 @@
     target:
       entity_id: '{{ states(''input_select.scene_selector'') }}'
   mode: single
+- id: '1686688089514'
+  alias: '[CYCLE] Charge or voltage low - charge on - lights off'
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.accu_total_charge_meter
+    below: 1
+    enabled: false
+  - platform: numeric_state
+    entity_id: sensor.accuspanning
+    below: 11
+  condition: []
+  action:
+  - type: turn_on
+    device_id: ef9044ce1940d90f8772b49a5044d4e0
+    entity_id: switch.accu_charge
+    domain: switch
+  - service: scene.turn_on
+    target:
+      entity_id: scene.nacht
+    metadata: {}
+  mode: single
+- id: '1686688152066'
+  alias: '[CYCLE] Accu power < 50w - charge off - lights on'
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.accu_power
+    below: 50
+  - platform: numeric_state
+    entity_id: sensor.accu_cell_voltages_max
+    above: 3.6
+  condition: []
+  action:
+  - type: turn_off
+    device_id: ef9044ce1940d90f8772b49a5044d4e0
+    entity_id: switch.accu_charge
+    domain: switch
+  - service: scene.turn_on
+    target:
+      entity_id: scene.wit
+    metadata: {}
+  mode: single
+- id: '1686689289319'
+  alias: Voltage delta < 0,01 - balancer on
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.accu_cell_voltages_delta
+    above: 0.01
+  condition: []
+  action:
+  - type: turn_on
+    device_id: 2fbb4311c7edd58c024469aff63101e1
+    entity_id: switch.battery_balancer
+    domain: switch
+  mode: single
+- id: '1686689421410'
+  alias: accu voltage delta < 0,005 - balancer off
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.accu_cell_voltages_delta
+    below: 0.005
+  condition: []
+  action:
+  - type: turn_off
+    device_id: 2fbb4311c7edd58c024469aff63101e1
+    entity_id: switch.battery_balancer
+    domain: switch
+  mode: single
+- id: '1686691056796'
+  alias: '[CYCLE] accuspanning > 14 - accu charge en scene wit aan'
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.accuspanning
+    above: 14
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 1
+  condition: []
+  action:
+  - type: turn_on
+    device_id: ef9044ce1940d90f8772b49a5044d4e0
+    entity_id: switch.accu_charge
+    domain: switch
+  - service: scene.turn_on
+    target:
+      entity_id: scene.wit
+    metadata: {}
+  mode: single
