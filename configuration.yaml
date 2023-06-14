@@ -96,6 +96,7 @@ recorder:
       - sensor.accu_total_charge_meter
       - sensor.accu_power
       - sensor.accu_cell_voltages_delta
+      - sensor.accu_cell_voltages_average
       - zone.home
       - sensor.accu_total_energy_charge_meter
       - sensor.accu_total_energy_discharge_meter
