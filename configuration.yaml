@@ -52,7 +52,7 @@ template:
         state: >
           {% set vermogen_dynamo = states('sensor.vermogen_dynamo')|float(0)*-1 %}
           {{ vermogen_dynamo | abs if vermogen_dynamo > 0.0 else 0.0 }}
-      - name: "solar_inverted"
+      - name: solar_inverted
         unit_of_measurement: "W"
         state_class: measurement
         device_class: power

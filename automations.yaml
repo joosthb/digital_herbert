@@ -248,17 +248,20 @@
     target:
       entity_id: scene.nacht
     metadata: {}
+  - service: shell_command.halt
+    data: {}
   mode: single
 - id: '1686688152066'
-  alias: '[CYCLE] Accu power < 50w - charge off - lights on'
+  alias: '[CYCLE] Cell voltage > 3,55 - charge off - lights on'
   description: ''
   trigger:
   - platform: numeric_state
     entity_id: sensor.accu_power
     below: 50
+    enabled: false
   - platform: numeric_state
     entity_id: sensor.accu_cell_voltages_max
-    above: 3.6
+    above: 3.55
   condition: []
   action:
   - type: turn_off
@@ -269,9 +272,10 @@
     target:
       entity_id: scene.wit
     metadata: {}
+    enabled: false
   mode: single
 - id: '1686689289319'
-  alias: Voltage delta < 0,01 - balancer on
+  alias: Voltage delta > 0,01 - balancer on
   description: ''
   trigger:
   - platform: numeric_state
