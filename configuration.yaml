@@ -100,6 +100,7 @@ recorder:
       - zone.home
       - sensor.accu_total_energy_charge_meter
       - sensor.accu_total_energy_discharge_meter
+      - sensor.accu_charge
   # Only commit db to disk every 5 minutes.
   commit_interval: 300
 
