@@ -104,6 +104,20 @@ light:
           name: Scan
           move_interval: 10ms
           scan_width: 10
+      - addressable_flicker:
+      - flicker:
+      - strobe:
+      - addressable_fireworks:
+      - addressable_random_twinkle:
+      - addressable_twinkle:
+      - addressable_color_wipe:
+      - pulse:
+          name: "Fast Pulse"
+          transition_length: 0.5s
+          update_interval: 0.5s
+          min_brightness: 0%
+          max_brightness: 100%
+
   - platform: partition
     name: Keuken
     id: keukenstrip
