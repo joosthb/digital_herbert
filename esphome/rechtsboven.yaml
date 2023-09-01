@@ -116,6 +116,13 @@ light:
           update_interval: 0.5s
           min_brightness: 0%
           max_brightness: 100%
+  - platform: partition
+    name: Leeslamp rechts
+    id: lezenrechts
+    segments:
+      - id: ledstrip
+        from: 72
+        to: 101
             
 # output entry
 output:
