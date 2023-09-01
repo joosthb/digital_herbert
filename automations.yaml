@@ -331,20 +331,34 @@
   - platform: state
     entity_id:
     - binary_sensor.laden
+    to: 'on'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 1
   condition: []
   action:
-  - if:
-    - condition: state
-      entity_id: binary_sensor.laden
-      state: ''
-    then:
-    - service: scene.turn_on
-      target:
-        entity_id: scene.laden
-      metadata: {}
-    else:
-    - service: scene.turn_on
-      target:
-        entity_id: scene.ontladen
-      metadata: {}
+  - service: scene.turn_on
+    target:
+      entity_id: scene.laden
+    metadata: {}
+  mode: single
+- id: '1693599317205'
+  alias: Ontladen
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.laden
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 1
+  condition: []
+  action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.ontladen
+    metadata: {}
   mode: single
