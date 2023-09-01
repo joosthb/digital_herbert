@@ -324,3 +324,27 @@
       entity_id: scene.wit
     metadata: {}
   mode: single
+- id: '1693598015081'
+  alias: Laden
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.laden
+  condition: []
+  action:
+  - if:
+    - condition: state
+      entity_id: binary_sensor.laden
+      state: ''
+    then:
+    - service: scene.turn_on
+      target:
+        entity_id: scene.laden
+      metadata: {}
+    else:
+    - service: scene.turn_on
+      target:
+        entity_id: scene.ontladen
+      metadata: {}
+  mode: single
