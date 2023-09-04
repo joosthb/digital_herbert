@@ -338,10 +338,16 @@
       seconds: 1
   condition: []
   action:
-  - service: scene.turn_on
+  - service: light.turn_on
+    data:
+      effect: Pulse
     target:
-      entity_id: scene.laden
-    metadata: {}
+      entity_id: light.buttons_1
+  - service: light.turn_on
+    data:
+      effect: none
+    target:
+      entity_id: light.buttons_2
   mode: single
 - id: '1693599317205'
   alias: Ontladen
@@ -357,8 +363,14 @@
       seconds: 1
   condition: []
   action:
-  - service: scene.turn_on
+  - service: light.turn_on
+    data:
+      effect: none
     target:
-      entity_id: scene.ontladen
-    metadata: {}
+      entity_id: light.buttons_1
+  - service: light.turn_on
+    data:
+      effect: Pulse
+    target:
+      entity_id: light.buttons_2
   mode: single
