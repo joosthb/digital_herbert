@@ -73,7 +73,8 @@ services:
     ports:
       - "8000:8000/tcp"
     volumes:
-      - /etc/wpa_supplicant/wpa_supplicant-wlan1_test.conf:/app/wpa_supplicant.conf
+      - ~/wpa_supplicant-wlan1_test.conf:/app/wpa_supplicant.conf
+      - ../containerpipe:/containerpipe
     logging:
       driver: "json-file"
       options:
