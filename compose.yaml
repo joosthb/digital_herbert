@@ -72,10 +72,8 @@ services:
     restart: unless-stopped
     ports:
       - "8000:8000/tcp"
-    # volumes:
-    #   - /opt/mosquitto/config:/mosquitto/config
-    #   - /opt/mosquitto/data:/mosquitto/data
-    #   - /opt/mosquitto/log:/mosquitto/log
+    volumes:
+      - /etc/wpa_supplicant/wpa_supplicant-wlan1_test.conf:/app/wpa_supplicant.conf
     logging:
       driver: "json-file"
       options:
