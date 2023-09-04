@@ -74,7 +74,8 @@ services:
       - "8000:8000/tcp"
     volumes:
       - ~/wpa_supplicant-wlan1_test.conf:/app/wpa_supplicant.conf
-      - ../containerpipe:/containerpipe
+      - ~/containerpipe:/containerpipe
+      - ~/connections.db:/app/connections.db
     logging:
       driver: "json-file"
       options:
