@@ -66,3 +66,18 @@ services:
         max-size: "100m"
         max-file: "5"
 
+  wpawebapp:
+    container_name: wpawebapp
+    image: joosthb/wpawebapp
+    restart: unless-stopped
+    ports:
+      - "8000:8000/tcp"
+    # volumes:
+    #   - /opt/mosquitto/config:/mosquitto/config
+    #   - /opt/mosquitto/data:/mosquitto/data
+    #   - /opt/mosquitto/log:/mosquitto/log
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "5"
