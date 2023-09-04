@@ -673,3 +673,269 @@
       state: 'on'
   icon: mdi:book-open-page-variant-outline
   metadata: {}
+- id: '1693596160471'
+  name: Laden
+  entities:
+    light.touchscreen:
+      supported_color_modes:
+      - onoff
+      friendly_name: touchscreen
+      supported_features: 0
+      state: 'off'
+    light.links_button_1_led:
+      effect_list:
+      - None
+      - Pulse
+      - blink
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 255
+      effect: Pulse
+      friendly_name: Links - Button 1 LED
+      supported_features: 44
+      state: 'on'
+    light.links_button_2_led:
+      effect_list:
+      - None
+      - Pulse
+      - blink
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 255
+      effect: None
+      friendly_name: Links Button 2 LED
+      supported_features: 44
+      state: 'on'
+    light.wand_links:
+      effect_list:
+      - None
+      - Rainbow
+      - Fast Random
+      - Scan
+      - Addressable Flicker
+      - Flicker
+      - Strobe
+      - Fireworks
+      - Random Twinkle
+      - Twinkle
+      - Color Wipe
+      - Fast Pulse
+      supported_color_modes:
+      - rgb
+      friendly_name: Wand links
+      supported_features: 44
+      state: 'off'
+    light.keuken:
+      supported_color_modes:
+      - rgb
+      friendly_name: Keuken
+      supported_features: 40
+      state: 'off'
+    light.leeslamp_links:
+      supported_color_modes:
+      - rgb
+      friendly_name: Leeslamp links
+      supported_features: 40
+      state: 'off'
+    switch.linksboven_shutdown:
+      icon: mdi:power
+      friendly_name: Linksboven shutdown
+      state: 'off'
+    light.rechts_button_1_led:
+      effect_list:
+      - None
+      - Pulse
+      - blink
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 255
+      effect: Pulse
+      friendly_name: Rechts - Button 1 LED
+      supported_features: 44
+      state: 'on'
+    light.rechts_button_2_led:
+      effect_list:
+      - None
+      - Pulse
+      - blink
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 255
+      effect: None
+      friendly_name: Rechts - Button 2 LED
+      supported_features: 44
+      state: 'on'
+    light.spots:
+      supported_color_modes:
+      - onoff
+      friendly_name: Spots
+      supported_features: 8
+      state: 'off'
+    light.wand_rechts:
+      effect_list:
+      - None
+      - Rainbow
+      - Fast Random
+      - Scan
+      - Addressable Flicker
+      - Flicker
+      - Strobe
+      - Fireworks
+      - Random Twinkle
+      - Twinkle
+      - Color Wipe
+      - Fast Pulse
+      supported_color_modes:
+      - rgb
+      friendly_name: Wand rechts
+      supported_features: 44
+      state: 'off'
+    light.leeslamp_rechts:
+      supported_color_modes:
+      - rgb
+      friendly_name: Leeslamp rechts
+      supported_features: 40
+      state: 'off'
+    switch.rechtsboven_shutdown:
+      icon: mdi:power
+      friendly_name: Rechtsboven shutdown
+      state: 'off'
+  icon: mdi:pulse
+  metadata: {}
+- id: '1693596203368'
+  name: Ontladen
+  entities:
+    light.touchscreen:
+      supported_color_modes:
+      - onoff
+      friendly_name: touchscreen
+      supported_features: 0
+      state: 'off'
+    light.links_button_1_led:
+      effect_list:
+      - None
+      - Pulse
+      - blink
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 255
+      effect: None
+      friendly_name: Links - Button 1 LED
+      supported_features: 44
+      state: 'on'
+    light.links_button_2_led:
+      effect_list:
+      - None
+      - Pulse
+      - blink
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 255
+      effect: Pulse
+      friendly_name: Links Button 2 LED
+      supported_features: 44
+      state: 'on'
+    light.wand_links:
+      effect_list:
+      - None
+      - Rainbow
+      - Fast Random
+      - Scan
+      - Addressable Flicker
+      - Flicker
+      - Strobe
+      - Fireworks
+      - Random Twinkle
+      - Twinkle
+      - Color Wipe
+      - Fast Pulse
+      supported_color_modes:
+      - rgb
+      friendly_name: Wand links
+      supported_features: 44
+      state: 'off'
+    light.keuken:
+      supported_color_modes:
+      - rgb
+      friendly_name: Keuken
+      supported_features: 40
+      state: 'off'
+    light.leeslamp_links:
+      supported_color_modes:
+      - rgb
+      friendly_name: Leeslamp links
+      supported_features: 40
+      state: 'off'
+    switch.linksboven_shutdown:
+      icon: mdi:power
+      friendly_name: Linksboven shutdown
+      state: 'off'
+    light.rechts_button_1_led:
+      effect_list:
+      - None
+      - Pulse
+      - blink
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 255
+      effect: None
+      friendly_name: Rechts - Button 1 LED
+      supported_features: 44
+      state: 'on'
+    light.rechts_button_2_led:
+      effect_list:
+      - None
+      - Pulse
+      - blink
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 255
+      effect: Pulse
+      friendly_name: Rechts - Button 2 LED
+      supported_features: 44
+      state: 'on'
+    light.spots:
+      supported_color_modes:
+      - onoff
+      friendly_name: Spots
+      supported_features: 8
+      state: 'off'
+    light.wand_rechts:
+      effect_list:
+      - None
+      - Rainbow
+      - Fast Random
+      - Scan
+      - Addressable Flicker
+      - Flicker
+      - Strobe
+      - Fireworks
+      - Random Twinkle
+      - Twinkle
+      - Color Wipe
+      - Fast Pulse
+      supported_color_modes:
+      - rgb
+      friendly_name: Wand rechts
+      supported_features: 44
+      state: 'off'
+    light.leeslamp_rechts:
+      supported_color_modes:
+      - rgb
+      friendly_name: Leeslamp rechts
+      supported_features: 40
+      state: 'off'
+    switch.rechtsboven_shutdown:
+      icon: mdi:power
+      friendly_name: Rechtsboven shutdown
+      state: 'off'
+  icon: mdi:pulse
+  metadata: {}
