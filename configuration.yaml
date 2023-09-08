@@ -101,6 +101,7 @@ recorder:
       - sensor.accu_total_energy_charge_meter
       - sensor.accu_total_energy_discharge_meter
       - sensor.accu_charge
+      - binary_sensor.laden
   # Only commit db to disk every 5 minutes.
   commit_interval: 300
 
