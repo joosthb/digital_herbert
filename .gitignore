@@ -20,7 +20,7 @@
 !bash_profile
 !pre-commit
 !.storage/lovelace*
-!tools
+!tools/*
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
