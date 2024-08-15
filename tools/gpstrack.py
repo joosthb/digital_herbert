@@ -2,6 +2,7 @@
 import socket
 import json
 from math import radians, cos, sin, asin, sqrt
+import time
 
 def haversine(lon1, lat1, lon2, lat2):
     """
@@ -32,6 +33,9 @@ except Exception as e:
   print(e)
 
 last = {}
+# implemented write buffer to prevent flash-mem-wear
+lastwrite = 0.0
+writebuffer = []
 
 while True:
   try:
@@ -44,10 +48,15 @@ while True:
     if not last:
       last = received
     else:
-      # if delta in meters > 10 save last and update
+      # if delta in meters > 10
       if haversine(last['lat'], last['lon'], received['lat'], received['lon']) > 10.0:
-        with open('gpstrack.json', 'a', encoding='utf-8') as f:
-          print(json.dumps(received), file=f)
+        writebuffer.append(json.dumps(received))
+        # only write once an hour or after 10 entries to preveent wear
+        if len(writebuffer) > 9 or time.time() - lastwrite > 3600:
+          with open('gpstrack.json', 'a', encoding='utf-8') as f:
+            f.write('\n'.join(writebuffer))
+          writebuffer=[]
+          lastwrite = time.time()
         # update last saved
         last = received
 
