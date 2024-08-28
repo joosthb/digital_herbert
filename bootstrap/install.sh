@@ -45,6 +45,9 @@ sudo cp ./templates/chrony.conf /etc/chrony/
 # gpsd
 sudo cp ./templates/gpsd /etc/default/
 
+# X11 config output driver
+sudo cp ./templates/99-vc4.conf /etc/X11/xorg.conf.d/
+
 # autostart config for gui, loading the chromium browser in kiosk mode
 sudo cp ./templates/autostart /etc/xdg/openbox/autostart
 
@@ -66,6 +69,8 @@ sudo systemctl enable hostapd
 sudo systemctl enable systemd-time-wait-sync
 sudo systemctl disable userconfig
 
+# file needs to exist for x to start
+touch ~/.Xauthority
 
 echo "System installed succesfully!"
 echo "Run \"cd ~/.homeassistant && docker compose up -d\" after reboot."
