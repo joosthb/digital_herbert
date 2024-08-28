@@ -95,7 +95,3 @@ sudo chronyc waitsync
 # Confirm syncing
 sudo timedatectl status
 ```
-
-# TODO
-
-- move connections.db into .homeassistant folder to include in backup.

@@ -53,10 +53,10 @@ services:
       - "1883:1883/tcp"
     environment:
       - TZ=Europe/Amsterdam
-    volumes:
-      - /opt/mosquitto/config:/mosquitto/config
-      - /opt/mosquitto/data:/mosquitto/data
-      - /opt/mosquitto/log:/mosquitto/log
+#    volumes:
+#      - /opt/mosquitto/config:/mosquitto/config
+#      - /opt/mosquitto/data:/mosquitto/data
+#      - /opt/mosquitto/log:/mosquitto/log
     stdin_open: true
     tty: true
     logging:
