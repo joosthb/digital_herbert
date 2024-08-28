@@ -14,4 +14,4 @@ mv -f data/* ~/.homeassistant/
 # cleanup
 rm homeassistant.tar.gz
 rm -rf data
-rm $1
+# rm $1
