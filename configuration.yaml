@@ -22,7 +22,7 @@ default_config:
 light:
   - platform: template
     lights:
-      touchscreen:
+      screen:
         turn_on:
           service: shell_command.display_on
         turn_off:
