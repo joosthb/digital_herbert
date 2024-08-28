@@ -77,10 +77,5 @@ mkdir ~/.homeassistant/media
 
 echo "System installed succesfully!"
 echo "Run \"cd ~/.homeassistant && docker compose up -d\" after reboot."
-echo "Press any key to reboot..."
-read
-sudo reboot
-
-# to perform after reboot
-# start esphome and docker
-cd ~/.homeassistant && docker compose up -d
+echo "To restore full backup use restore.sh script"
+echo "After restore, reboot"
