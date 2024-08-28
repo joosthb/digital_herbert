@@ -72,6 +72,9 @@ sudo systemctl disable userconfig
 # file needs to exist for x to start
 touch ~/.Xauthority
 
+# dir has to exist on boot, populate it with screensaver images.
+mkdir ~/.homeassistant/media
+
 echo "System installed succesfully!"
 echo "Run \"cd ~/.homeassistant && docker compose up -d\" after reboot."
 echo "Press any key to reboot..."
