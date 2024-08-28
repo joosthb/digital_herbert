@@ -24,6 +24,7 @@ api:
     key: !secret device_key
 
 ota:
+  platform: esphome
   password: !secret device_passwd
 
 binary_sensor:
