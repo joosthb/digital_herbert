@@ -24,6 +24,8 @@ services:
       - /etc/localtime:/etc/localtime:ro
     ports:
       - 6052:6052
+    environment:
+      - ESPHOME_BUILD_PATH=/build
     restart: unless-stopped
     logging:
       driver: "json-file"
