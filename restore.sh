@@ -7,7 +7,7 @@ fi
 # extract specific files
 tar xvf $1 homeassistant.tar.gz
 
-tar zxvf homeassistant.tar.gz data/home-assistant_v2.db data/media data/www data/custom_components
+tar zxvf homeassistant.tar.gz data/home-assistant_v2.db data/media data/www data/custom_components data/.storage
 
 mv -f data/* ~/.homeassistant/
 
