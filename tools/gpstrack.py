@@ -45,6 +45,7 @@ while True:
     continue
 
   if received['class'] == 'TPV':
+    print(received)
     if not last:
       last = received
     else:
