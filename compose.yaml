@@ -74,7 +74,7 @@ services:
     volumes:
       - /etc/wpa_supplicant/wpa_supplicant-wlan1.conf:/app/wpa_supplicant.conf
       - ~/containerpipe:/containerpipe
-      - ~/connections.db:/app/connections.db
+      - ./connections.db:/app/connections.db
     logging:
       driver: "json-file"
       options:
