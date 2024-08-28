@@ -62,6 +62,8 @@ mkfifo ~/containerpipe
 
 # add namedpipe eval script to boot via cron
 (crontab -l 2>/dev/null; echo "@reboot $HOME/.homeassistant/bootstrap/templates/named_pipe.sh") | crontab -
+# add backup script hourly
+(crontab -l 2>/dev/null; echo "@hourly $HOME/.homeassistant/backup.sh") | crontab -
 
 # enable services
 sudo systemctl unmask hostapd
@@ -72,10 +74,6 @@ sudo systemctl disable userconfig
 # file needs to exist for x to start
 touch ~/.Xauthority
 
-# dir has to exist on boot, populate it with screensaver images.
-mkdir ~/.homeassistant/media
-
 echo "System installed succesfully!"
 echo "Run \"cd ~/.homeassistant && docker compose up -d\" after reboot."
-echo "To restore full backup use restore.sh script"
 echo "After restore, reboot"

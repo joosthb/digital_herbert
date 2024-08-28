@@ -13,7 +13,7 @@ fi
 ssh -q $1 "sudo apt-get update && sudo apt-get upgrade -y"
 ssh -q $1 "sudo apt-get install -y git"
 ssh -q $1 "ssh-keygen -q -t rsa -b 2048 -N \"\" -f ~/.ssh/id_rsa && cat ~/.ssh/id_rsa.pub"
-echo "Add key above to github repo as deployment key and press enter..."
+echo "Add key above to github repo as deployment key AND local NAS for backups and press enter..."
 read
 # auto accept fingerprint (unsafe)
 ssh -q $1 "ssh-keyscan github.com >> ~/.ssh/known_hosts"
