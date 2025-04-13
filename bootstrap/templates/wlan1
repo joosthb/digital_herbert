@@ -1,5 +1,0 @@
-auto wlan1
-allow-hotplug wlan1
-wireless-power off
-iface wlan1 inet dhcp
-  wpa-conf /etc/wpa_supplicant/wpa_supplicant-wlan1.conf
