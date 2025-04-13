@@ -71,5 +71,6 @@ sudo systemctl disable userconfig
 touch ~/.Xauthority
 
 echo "System installed succesfully!"
+echo "Use sudo raspi-config tool to config autologin: select \“Console Autologin\”."
 echo "Run \"cd ~/.homeassistant && docker compose up -d\" after reboot."
 echo "After restore, reboot"
