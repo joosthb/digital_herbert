@@ -33,11 +33,7 @@ sudo cp ./templates/dnsmasq.conf /etc/
 
 # create accesspoint on wlan0
 envsubst < ./templates/hostapd.conf > hostapd.tmp
-sudo mv hostapd.tmp /etc/hostapd/hostapd.conf
-
-# bind 'uplink' to wlan1 interface
-sudo cp ./templates/wlan1 /etc/network/interfaces.d/wlan1
-sudo mv /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant-wlan1.conf
+sudo mv hostapd.tmp /etc/hostapd/hostapd.confß
 
 # chrony
 sudo cp ./templates/chrony.conf /etc/chrony/
