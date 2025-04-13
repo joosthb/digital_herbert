@@ -33,7 +33,7 @@ sudo cp ./templates/dnsmasq.conf /etc/
 
 # create accesspoint on wlan0
 envsubst < ./templates/hostapd.conf > hostapd.tmp
-sudo mv hostapd.tmp /etc/hostapd/hostapd.confß
+sudo mv hostapd.tmp /etc/hostapd/hostapd.conf
 
 # chrony
 sudo cp ./templates/chrony.conf /etc/chrony/
