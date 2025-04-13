@@ -2,6 +2,7 @@
 # Script to setup digital herbert raspberry pi os
 
 # load env
+source .env
 
 set -e
 set -u
@@ -16,7 +17,7 @@ fi
 curl -sSL https://get.docker.com | sh
 
 # for gps time sync and local wifi and gpsd service
-sudo apt-get install -y chrony hostapd dnsmasq gpsd
+sudo apt-get install -y chrony gpsd
 
 # graphical interface for driving the touch screen 
 sudo apt-get install -y --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox
@@ -24,16 +25,11 @@ sudo apt-get install -y --no-install-recommends xserver-xorg x11-xserver-utils x
 # browser for showing gui
 sudo apt-get install -y --no-install-recommends chromium-browser
 
-# parse and write config files
-# set static-ip for wlan0 in dhcpcd
-sudo cp ./templates/dhcpcd.conf /etc/
-
-# set dhcp lease range for wlan0 and disable gateway
-sudo cp ./templates/dnsmasq.conf /etc/
-
-# create accesspoint on wlan0
-envsubst < ./templates/hostapd.conf > hostapd.tmp
-sudo mv hostapd.tmp /etc/hostapd/hostapd.conf
+# Create local network
+sudo nmcli connection add type wifi ifname wlan0 con-name $AP_SSID autoconnect no ssid $AP_SSID
+sudo nmcli connection modify $AP_SSID 802-11-wireless.mode ap 802-11-wireless.band bg ipv4.method shared
+sudo nmcli connection modify $AP_SSID wifi-sec.key-mgmt wpa-psk
+sudo nmcli connection modify $AP_SSID wifi-sec.psk "$AP_WPA_PASSPHRASE"
 
 # chrony
 sudo cp ./templates/chrony.conf /etc/chrony/
@@ -62,8 +58,6 @@ mkfifo ~/containerpipe
 (crontab -l 2>/dev/null; echo "@hourly $HOME/.homeassistant/backup.sh") | crontab -
 
 # enable services
-sudo systemctl unmask hostapd
-sudo systemctl enable hostapd
 sudo systemctl enable systemd-time-wait-sync
 sudo systemctl disable userconfig
 
