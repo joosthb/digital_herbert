@@ -30,6 +30,7 @@ sudo nmcli connection add type wifi ifname wlan0 con-name $AP_SSID autoconnect n
 sudo nmcli connection modify $AP_SSID 802-11-wireless.mode ap 802-11-wireless.band bg ipv4.method shared
 sudo nmcli connection modify $AP_SSID wifi-sec.key-mgmt wpa-psk
 sudo nmcli connection modify $AP_SSID wifi-sec.psk "$AP_WPA_PASSPHRASE"
+sudo nmcli connection up $AP_SSID
 
 # chrony
 sudo cp ./templates/chrony.conf /etc/chrony/
