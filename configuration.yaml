@@ -107,7 +107,7 @@ recorder:
 
 # shell commands executed through named pipe, mounted on host
 shell_command:
-  halt: echo "docker stop $(docker ps -q) && sudo shutdown -h now" > /containerpipe
+  halt: echo "sudo /sbin/halt" > /containerpipe
   display_off: echo "export DISPLAY=:0; xset dpms force off; xset dpms 60 0 0" > /containerpipe
   display_on: echo "export DISPLAY=:0; xset -dpms" > /containerpipe
   restart_gpsd: echo "sudo systemctl restart gpsd" > /containerpipe
