@@ -2,6 +2,7 @@
 # Script to setup digital herbert raspberry pi os
 
 # load env
+#TODO lijkt dubbel - source of export, beiden staan er nu.. weird.
 source .env
 
 set -e
