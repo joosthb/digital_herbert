@@ -3,10 +3,12 @@ homeassistant:
     media: "/config/media"
   customize: !include customize.yaml
   auth_providers:
+    - type: homeassistant
     - type: trusted_networks
       trusted_networks:
         - 192.168.99.0/24
         - 192.168.1.0/24
+        - 10.42.0.0/24
         - 127.0.0.1
         - ::1
       allow_bypass_login: true
@@ -28,7 +30,7 @@ light:
 
 sensor:
   # Import gps data
-  - platform: gpsd
+  # - platform: gpsd
   # Integrate power values
   - platform: integration
     source: sensor.dyn_wal_inverted
