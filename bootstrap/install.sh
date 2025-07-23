@@ -36,11 +36,11 @@ sudo cp ./templates/00-custom.conf /etc/NetworkManager/dnsmasq.d/
 sudo systemctl restart NetworkManager
 
 # Create local network
-sudo nmcli connection add type wifi ifname wlan0 con-name $AP_SSID autoconnect no ssid $AP_SSID
+sudo nmcli connection add type wifi ifname wlan0 con-name $AP_SSID ssid $AP_SSID
 sudo nmcli connection modify $AP_SSID 802-11-wireless.mode ap 802-11-wireless.band bg ipv4.method shared
 sudo nmcli connection modify $AP_SSID wifi-sec.key-mgmt wpa-psk
 sudo nmcli connection modify $AP_SSID wifi-sec.psk "$AP_WPA_PASSPHRASE"
-sudo nmcli connection modify $AP_SSID ipv4.addresses 192.0.99.1/24
+sudo nmcli connection modify $AP_SSID ipv4.addresses 192.168.99.1/24
 sudo nmcli connection up $AP_SSID
 
 # chrony
