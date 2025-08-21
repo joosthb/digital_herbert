@@ -1,0 +1,19 @@
+services:
+  esphome:
+    container_name: esphome
+    image: ghcr.io/esphome/esphome
+    volumes:
+      - ./esphome:/config
+      - ./secrets.yaml:/config/secrets.yaml
+      - /etc/localtime:/etc/localtime:ro
+      - esphomecache:/cache
+    ports:
+      - 6052:6052
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "5"
+volumes:
+    esphomecache:
