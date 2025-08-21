@@ -49,11 +49,18 @@ Added car-radio as [bluetooth audio device](https://github.com/evzone/hassio-blu
 
 ## Local compile esphome
 
-compiling esphome firmware is pretty heavy on a raspberry so local (laptop) compile helps. You can run this locally like this:
+Since compiling esphome firmware is pretty heavy on a raspberry with limited internet uplink (as is in camper) local (laptop) compile is preferred. Therefore, esphome is split into a different compose file.
+
+Deployment strategy is to run following locally:
 
 ```
-docker compose -f compose.local.yaml run --rm esphome compile *.yaml
+docker compose -f compose.local.yaml up
 ```
+
+Then "UPDATE ALL" from dashboard [http://localhost:6052/](http://localhost:6052/).
+
+Then rerun from within RV.
+
 
 # Raspberry pi bootstrapping
 
