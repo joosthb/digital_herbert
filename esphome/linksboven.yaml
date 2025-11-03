@@ -9,6 +9,7 @@ wifi:
   password: !secret wifi_passwd
   domain: !secret domain
   # use_address: linksboven.local
+  use_address: linksboven
   
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:

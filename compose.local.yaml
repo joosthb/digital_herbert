@@ -1,7 +1,7 @@
 services:
   esphome:
     container_name: esphome
-    image: ghcr.io/esphome/esphome
+    image: ghcr.io/esphome/esphome:2024.8.0
     volumes:
       - ./esphome:/config
       - ./secrets.yaml:/config/secrets.yaml
