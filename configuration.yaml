@@ -19,19 +19,17 @@ backup:
 default_config:
 
 # template light for turning display on off
-light:
-  - platform: template
-    lights:
-      screen:
-        turn_on:
-          service: shell_command.display_on
-        turn_off:
-          service: shell_command.display_off
+#template in light not supported anymore, should be a template.
+#light:
+#  - platform: template
+#    lights:
+#      screen:
+#        turn_on:
+#          service: shell_command.display_on
+#        turn_off:
+#          service: shell_command.display_off
 
 sensor:
-  # Import gps data
-  # - platform: gpsd
-  # Integrate power values
   - platform: integration
     source: sensor.dyn_wal_inverted
     name: dynamo_wal_energie
@@ -46,6 +44,11 @@ sensor:
     name: invoeders_energie
 
 template:
+  - device_tracker:
+      - name: Herbert
+        latitude: "{{ states('sensor.gps_breedtegraad') }}"
+        longitude: "{{ states('sensor.gps_lengtegraad') }}"
+        icon: mdi:rv-truck
   - sensor:
       - name: "dyn_wal_inverted"
         unit_of_measurement: "W"
@@ -77,9 +80,11 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 
 recorder:
+  purge_keep_days: 30
   # only record herbert health status
   include:
     entities:
+      - device_tracker.herbert
       - switch.acculader
       - binary_sensor.beweging
       - sensor.energie_verbruik_totaal
@@ -116,15 +121,15 @@ shell_command:
   purge_backups: cd /config/backups/ && ls -A1t | tail -n +8 | xargs rm -v
 
   # entry for the Telegram Bot
-telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_api_key
-    allowed_chat_ids:
-      - 451219846
-
-# entry for the notifier
-notify:
-  - name: hb_tel
-    platform: telegram
-    chat_id: 451219846
-
+#telegram_bot:
+#  - platform: polling
+#    api_key: !secret telegram_api_key
+#    allowed_chat_ids:
+#      - 451219846
+#
+## entry for the notifier
+#notify:
+#  - name: hb_tel
+#    platform: telegram
+#    chat_id: 451219846
+#

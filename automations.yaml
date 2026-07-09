@@ -1,14 +1,22 @@
 - id: b9047cf84ccc44a3b194cfa115eaca8d
   alias: Boot completed
-  trigger:
+  triggers:
   - event: start
-    platform: homeassistant
-  action:
+    trigger: homeassistant
+  actions:
   - data:
       data:
         subtitle: System state
       message: Boot completed ✅
-    service: notify.hb_tel
+    action: notify.hb_tel
+    enabled: false
+  - action: telegram_bot.send_message
+    metadata: {}
+    data:
+      entity_id:
+      - notify.digital_herbert_joost_451219846
+      message: tetete
+      parse_mode: html
   mode: single
 - id: 6ed8f74c2eff495e97aada68d511183f
   alias: Shutdown initiated completed
@@ -112,20 +120,6 @@
   - data: {}
     entity_id: light.leeslamp_rechts
     service: light.turn_off
-  mode: single
-- id: '1665425518140'
-  alias: Periodic backup
-  description: Call backup script each monday on 2am
-  trigger:
-  - platform: time
-    at: 02:00:00
-  condition:
-  - condition: time
-    weekday:
-    - mon
-  action:
-  - service: backup.create
-    data: {}
   mode: single
 - id: '1666263105048'
   alias: gpsd restart
@@ -317,16 +311,4 @@
       effect: Pulse
     target:
       entity_id: light.buttons_2
-  mode: single
-- id: '1712132532171'
-  alias: purge backups hourly
-  description: ''
-  trigger:
-  - platform: time_pattern
-    hours: '1'
-  condition: []
-  action:
-  - service: shell_command.purge_backups
-    metadata: {}
-    data: {}
   mode: single
